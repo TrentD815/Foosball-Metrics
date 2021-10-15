@@ -16,10 +16,12 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatSliderModule} from "@angular/material/slider";
+import { GameEntryComponent } from './game-entry/game-entry.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameEntryComponent
   ],
   imports: [
     BrowserModule,

@@ -13,12 +13,7 @@ const GITHUB = `<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/200
 })
 export class AppComponent {
   title = 'foosball-metrics';
-  date = new FormControl(new Date());
-  serializedDate = new FormControl((new Date()).toISOString());
-  autoTicks = false;
-  showTicks = false;
-  value = 0;
-  tickInterval = 1;
+
 
   async CreateGradient() {
     const gradient = new Gradient();
@@ -30,11 +25,5 @@ export class AppComponent {
   ngOnInit(): void {
     this.CreateGradient()
   }
-  getSliderTickInterval(): number | 'auto' {
-    if (this.showTicks) {
-      return this.autoTicks ? 'auto' : this.tickInterval;
-    }
 
-    return 0;
-  }
 }
