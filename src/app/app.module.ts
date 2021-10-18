@@ -17,31 +17,39 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatSliderModule} from "@angular/material/slider";
 import { GameEntryComponent } from './game-entry/game-entry.component';
+import { GameLogsComponent } from './game-logs/game-logs.component';
+import { StatsComponent } from './stats/stats.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameEntryComponent
+    GameEntryComponent,
+    GameLogsComponent,
+    StatsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatCardModule,
-    MatDividerModule,
-    MatProgressBarModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatNativeDateModule,
-    FormsModule,
-    MatSliderModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTabsModule,
+        MatCardModule,
+        MatDividerModule,
+        MatProgressBarModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatNativeDateModule,
+        FormsModule,
+        MatSliderModule,
+        MatTableModule,
+        MatPaginatorModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

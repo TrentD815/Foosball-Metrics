@@ -14,16 +14,13 @@ const GITHUB = `<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/200
 export class AppComponent {
   title = 'foosball-metrics';
 
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIconLiteral('github', sanitizer.bypassSecurityTrustHtml(GITHUB));
+  }
+  ngOnInit(): void { this.CreateGradient() }
 
   async CreateGradient() {
     const gradient = new Gradient();
     gradient.initGradient('#gradient-canvas')
   }
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIconLiteral('github', sanitizer.bypassSecurityTrustHtml(GITHUB));
-  }
-  ngOnInit(): void {
-    this.CreateGradient()
-  }
-
 }
