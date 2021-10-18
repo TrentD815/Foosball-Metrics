@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from "@angular/forms";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'game-entry',
@@ -9,10 +10,12 @@ import {FormControl} from "@angular/forms";
 export class GameEntryComponent implements OnInit {
   date = new FormControl(new Date());
   autoTicks = false;
-  showTicks = false;
+  showTicks = true;
   value = 0;
   tickInterval = 1;
-  constructor() { }
+  toastDuration = 5;
+
+  constructor(private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
@@ -22,5 +25,7 @@ export class GameEntryComponent implements OnInit {
     }
     return 0;
   }
-
+  addGame(message: string, action: string) {
+    this._snackBar.open(message, action, {duration: this.toastDuration * 1000});
+  }
 }

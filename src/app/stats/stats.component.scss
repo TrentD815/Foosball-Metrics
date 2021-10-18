@@ -1,0 +1,26 @@
+.masonry-container {
+  column-count: 3;
+  column-gap: 15px;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  margin: 1em;
+  width: 50%;
+
+}
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  border-radius: 100px !important;
+  margin-bottom: 1em;
+}
+.masonry-item mat-divider {
+  margin: 10px;
+}
+.masonry-item img {
+  display:block;
+  width: 100%;
+}
+.spacer {
+  flex-grow: .5;
+}

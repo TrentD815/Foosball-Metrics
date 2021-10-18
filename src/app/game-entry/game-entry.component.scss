@@ -1,0 +1,13 @@
+#gameEntryContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1em;
+  text-align: center;
+}
+
+mat-form-field {
+  display: inherit;
+}
+mat-button-toggle-group {
+  margin: 1em 0;
+}

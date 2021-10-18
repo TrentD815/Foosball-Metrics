@@ -3,25 +3,29 @@
   justify-content: space-evenly;
 }
 .gameLogsSpacer {
-  flex-grow: 1;
+  flex-grow: .5;
 }
 #gameLogsContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex-grow: 1;
   margin: 1em;
-  flex-grow: 1.5;
   text-align: center;
 }
 th {
   text-align: center !important;
 }
-//table {
-//  width: 50%;
-//}
-//mat-form-field {
-//  width: 50%
-//}
-//mat-paginator {
-//  width:50%
-//}
+table {
+  width: 100%;
+}
+.mat-table {
+  border-radius: .5em .5em 0 0;
+  overflow:hidden !important;
+}
+.mat-paginator {
+  border-radius:  0 0 .5em .5em;
+}
+.mat-elevation-z8 {
+  border-radius: .5em;
+}

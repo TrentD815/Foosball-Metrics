@@ -21,7 +21,8 @@ import { GameLogsComponent } from './game-logs/game-logs.component';
 import { StatsComponent } from './stats/stats.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,27 +30,29 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     GameLogsComponent,
     StatsComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatButtonModule,
-        MatTabsModule,
-        MatCardModule,
-        MatDividerModule,
-        MatProgressBarModule,
-        MatFormFieldModule,
-        MatDatepickerModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatNativeDateModule,
-        FormsModule,
-        MatSliderModule,
-        MatTableModule,
-        MatPaginatorModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatCardModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatNativeDateModule,
+    FormsModule,
+    MatSliderModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSnackBarModule,
+    MatButtonToggleModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
