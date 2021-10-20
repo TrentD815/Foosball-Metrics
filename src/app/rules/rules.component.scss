@@ -1,0 +1,10 @@
+#rulesContainer {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  margin: 1em;
+  text-align: center;
+}
+.spacer {
+  flex-grow: .5;
+}

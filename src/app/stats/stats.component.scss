@@ -1,11 +1,9 @@
 .masonry-container {
   column-count: 3;
   column-gap: 15px;
-  flex-grow: 1;
-  justify-content: space-evenly;
   margin: 1em;
   width: 50%;
-
+  text-align: center !important;
 }
 .masonry-item {
   display: inline-block;
@@ -22,5 +20,47 @@
   width: 100%;
 }
 .spacer {
-  flex-grow: .5;
+  width: 25%;
+}
+
+// ----Styles to create medal icons -----
+.ib::before,
+.ibc::before{
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  vertical-align: -.125em;
+  content:'';
+}
+
+.ib::before{
+  background: currentColor;
+  mask-image: var(--url);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: var(--url);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.ibc::before{
+  background-image: var(--url);
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat:no-repeat;
+}
+
+/* Html: <i class="ibc noto-1st-place-medal"></i> */
+.noto-1st-place-medal{
+  --url: url('data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22%3e%3clinearGradient id=%22IconifyId-17c9b36d09b-fbde77-3409%22 gradientUnits=%22userSpaceOnUse%22 x1=%2287.18%22 y1=%22125.456%22 x2=%2272.25%22 y2=%2291.549%22 gradientTransform=%22matrix%281 0 0 -1 0 127.89%29%22%3e%3cstop offset=%22.136%22 stop-color=%22%231e88e5%22/%3e%3cstop offset=%22.938%22 stop-color=%22%231565c0%22/%3e%3c/linearGradient%3e%3cpath fill=%22url%28%23IconifyId-17c9b36d09b-fbde77-3409%29%22 d=%22M106 4L93 24.9L79.9 46.2H48.4l.1-.2L61 25.9L74.6 4z%22/%3e%3cpath d=%22M102.4 4L78.2 43H53.8L78.2 4h-3.5L61 25.9L48.4 46h31.4L93 24.9L106.1 4h-3.7z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3cpath d=%22M82 34H46c-4.4 0-8 3.6-8 8v16c0 2.2 1.8 4 4 4s5-1.8 5-4V48c0-1.1.9-2 2-2h30c1.1 0 2 .9 2 2v9.9c0 2 2.3 3.7 4.2 4c.3 0 .5.1.8.1c2.2 0 4-1.8 4-4V42c0-4.4-3.6-8-8-8z%22 fill=%22%23fdd835%22/%3e%3cpath d=%22M82 36c3.3 0 6 2.7 6 6v16c0 1.1-.9 2-2 2h-.4c-1.2-.2-2.6-1.3-2.6-2.1V48c0-2.2-1.8-4-4-4H49c-2.2 0-4 1.8-4 4v10c0 .9-1.6 2-3 2c-1.1 0-2-.9-2-2V42c0-3.3 2.7-6 6-6h36m0-2H46c-4.4 0-8 3.6-8 8v16c0 2.2 1.8 4 4 4s5-1.8 5-4V48c0-1.1.9-2 2-2h30c1.1 0 2 .9 2 2v9.9c0 2 2.3 3.7 4.2 4c.3 0 .5.1.8.1c2.2 0 4-1.8 4-4V42c0-4.4-3.6-8-8-8z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3clinearGradient id=%22IconifyId-17c9b36d09b-fbde77-3410%22 gradientUnits=%22userSpaceOnUse%22 x1=%2242.797%22 y1=%22121.338%22 x2=%2260.099%22 y2=%2282.687%22 gradientTransform=%22matrix%281 0 0 -1 0 127.89%29%22%3e%3cstop offset=%22.136%22 stop-color=%22%2364b5f6%22/%3e%3cstop offset=%22.946%22 stop-color=%22%232196f3%22/%3e%3c/linearGradient%3e%3cpath fill=%22url%28%23IconifyId-17c9b36d09b-fbde77-3410%29%22 d=%22M79.9 46.2H48.4L22.3 4h31.5z%22/%3e%3cpath d=%22M53.6 4H50l24.5 39H50.1L25.7 4h-3.5l26.2 42h31.4L53.6 4z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3cradialGradient id=%22IconifyId-17c9b36d09b-fbde77-3411%22 cx=%2243%22 cy=%22771.5%22 r=%2272.577%22 gradientTransform=%22translate%280 -714%29%22 gradientUnits=%22userSpaceOnUse%22%3e%3cstop offset=%22.297%22 stop-color=%22%23ffeb3b%22/%3e%3cstop offset=%22.954%22 stop-color=%22%23fbc02d%22/%3e%3c/radialGradient%3e%3ccircle cx=%2264%22 cy=%2286%22 r=%2238%22 fill=%22url%28%23IconifyId-17c9b36d09b-fbde77-3411%29%22/%3e%3cpath d=%22M64 51c19.3 0 35 15.7 35 35s-15.7 35-35 35s-35-15.7-35-35s15.7-35 35-35m0-3c-21 0-38 17-38 38s17 38 38 38s38-17 38-38s-17-38-38-38z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3cpath fill=%22none%22 d=%22M47.3 63.6h33.4V108H47.3z%22/%3e%3cpath fill=%22%23ffa000%22 d=%22M52.4 72.2V79l9.8-3v31.1h8.2V65.8z%22/%3e%3c/svg%3e');
+}
+
+/* Html: <i class="ibc noto-2nd-place-medal"></i> */
+.noto-2nd-place-medal{
+  --url: url('data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22%3e%3clinearGradient id=%22IconifyId-17c9b36d09b-a2d25-3412%22 gradientUnits=%22userSpaceOnUse%22 x1=%2289.624%22 y1=%22125.043%22 x2=%2272.321%22 y2=%2294.066%22 gradientTransform=%22matrix%281 0 0 -1 0 127.89%29%22%3e%3cstop offset=%22.136%22 stop-color=%22%231e88e5%22/%3e%3cstop offset=%22.938%22 stop-color=%22%231565c0%22/%3e%3c/linearGradient%3e%3cpath fill=%22url%28%23IconifyId-17c9b36d09b-a2d25-3412%29%22 d=%22M106 4L93 24.9L79.9 46.2H48.4l.1-.2L61 25.9L74.6 4z%22/%3e%3cpath d=%22M102.4 4L78.2 43H53.8L78.2 4h-3.5L61 25.9L48.4 46h31.4L93 24.9L106.1 4h-3.7z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3cpath d=%22M82 34H46c-4.4 0-8 3.6-8 8v16c0 2.2 1.8 4 4 4s5-1.8 5-4V48c0-1.1.9-2 2-2h30c1.1 0 2 .9 2 2v9.9c0 2 2.3 3.7 4.2 4c.3 0 .5.1.8.1c2.2 0 4-1.8 4-4V42c0-4.4-3.6-8-8-8z%22 fill=%22%23bdbdbd%22/%3e%3cpath d=%22M82 36c3.3 0 6 2.7 6 6v16c0 1.1-.9 2-2 2h-.4c-1.2-.2-2.6-1.3-2.6-2.1V48c0-2.2-1.8-4-4-4H49c-2.2 0-4 1.8-4 4v10c0 .9-1.6 2-3 2c-1.1 0-2-.9-2-2V42c0-3.3 2.7-6 6-6h36m0-2H46c-4.4 0-8 3.6-8 8v16c0 2.2 1.8 4 4 4s5-1.8 5-4V48c0-1.1.9-2 2-2h30c1.1 0 2 .9 2 2v9.9c0 2 2.3 3.7 4.2 4c.3 0 .5.1.8.1c2.2 0 4-1.8 4-4V42c0-4.4-3.6-8-8-8z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3clinearGradient id=%22IconifyId-17c9b36d09b-a2d25-3413%22 gradientUnits=%22userSpaceOnUse%22 x1=%2240.428%22 y1=%22122.721%22 x2=%2262.475%22 y2=%2281.558%22 gradientTransform=%22matrix%281 0 0 -1 0 127.89%29%22%3e%3cstop offset=%22.136%22 stop-color=%22%2364b5f6%22/%3e%3cstop offset=%22.946%22 stop-color=%22%232196f3%22/%3e%3c/linearGradient%3e%3cpath fill=%22url%28%23IconifyId-17c9b36d09b-a2d25-3413%29%22 d=%22M79.9 46.2H48.4L35.9 25.9L22.3 4h31.5L68 27l11.8 19z%22/%3e%3cpath d=%22M68 27L53.6 4H50l24.5 39H50.1L25.7 4h-3.5l13.7 21.9L48.4 46h31.4L68 27z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3cradialGradient id=%22IconifyId-17c9b36d09b-a2d25-3414%22 cx=%2243%22 cy=%22777.25%22 r=%2269.492%22 gradientTransform=%22translate%280 -714%29%22 gradientUnits=%22userSpaceOnUse%22%3e%3cstop offset=%22.283%22 stop-color=%22%23eee%22/%3e%3cstop offset=%221%22 stop-color=%22%23bdbdbd%22/%3e%3c/radialGradient%3e%3ccircle cx=%2264%22 cy=%2286%22 r=%2238%22 fill=%22url%28%23IconifyId-17c9b36d09b-a2d25-3414%29%22/%3e%3cpath d=%22M64 51c19.3 0 35 15.7 35 35s-15.7 35-35 35s-35-15.7-35-35s15.7-35 35-35m0-3c-21 0-38 17-38 38s17 38 38 38s38-17 38-38s-17-38-38-38z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3cpath fill=%22none%22 d=%22M47.3 63.6h33.4V108H47.3z%22/%3e%3cpath d=%22M50.6 78.1s-.1-13.2 14.1-13.2s12.8 12.3 12.8 12.3C77.6 84.6 66.8 93 61.8 99H79v6.6H51.5V100c4.5-5 18-17.7 18-21.8c0 0 1.1-6.8-5-6.8s-5.8 6.7-5.8 6.7h-8.1z%22 fill=%22%23757575%22/%3e%3c/svg%3e');
+}
+
+/* Html: <i class="ibc noto-3rd-place-medal"></i> */
+.noto-3rd-place-medal{
+  --url: url('data:image/svg+xml,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22%3e%3clinearGradient id=%22IconifyId-17c9b36d09b-d42344-3415%22 gradientUnits=%22userSpaceOnUse%22 x1=%2293.248%22 y1=%22125.015%22 x2=%2269.946%22 y2=%2292.643%22 gradientTransform=%22matrix%281 0 0 -1 0 127.89%29%22%3e%3cstop offset=%22.136%22 stop-color=%22%231e88e5%22/%3e%3cstop offset=%22.938%22 stop-color=%22%231565c0%22/%3e%3c/linearGradient%3e%3cpath fill=%22url%28%23IconifyId-17c9b36d09b-d42344-3415%29%22 d=%22M106 4L93 24.9L79.9 46.2H48.4l.1-.2L61 25.9L74.6 4z%22/%3e%3cpath d=%22M102.4 4L78.2 43H53.8L78.2 4h-3.5L61 25.9L48.4 46h31.4L93 24.9L106.1 4h-3.7z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3cpath d=%22M82 34H46c-4.4 0-8 3.6-8 8v16c0 2.2 1.8 4 4 4s5-1.8 5-4V48c0-1.1.9-2 2-2h30c1.1 0 2 .9 2 2v9.9c0 2 2.3 3.7 4.2 4c.3 0 .5.1.8.1c2.2 0 4-1.8 4-4V42c0-4.4-3.6-8-8-8z%22 fill=%22%23ff9800%22/%3e%3cpath d=%22M82 36c3.3 0 6 2.7 6 6v16c0 1.1-.9 2-2 2h-.4c-1.2-.2-2.6-1.3-2.6-2.1V48c0-2.2-1.8-4-4-4H49c-2.2 0-4 1.8-4 4v10c0 .9-1.6 2-3 2c-1.1 0-2-.9-2-2V42c0-3.3 2.7-6 6-6h36m0-2H46c-4.4 0-8 3.6-8 8v16c0 2.2 1.8 4 4 4s5-1.8 5-4V48c0-1.1.9-2 2-2h30c1.1 0 2 .9 2 2v9.9c0 2 2.3 3.7 4.2 4c.3 0 .5.1.8.1c2.2 0 4-1.8 4-4V42c0-4.4-3.6-8-8-8z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3cradialGradient id=%22IconifyId-17c9b36d09b-d42344-3416%22 cx=%2247.553%22 cy=%22781.036%22 r=%2273.814%22 gradientTransform=%22translate%280 -714%29%22 gradientUnits=%22userSpaceOnUse%22%3e%3cstop offset=%22.267%22 stop-color=%22%23ffa726%22/%3e%3cstop offset=%221%22 stop-color=%22%23fb8c00%22/%3e%3c/radialGradient%3e%3ccircle cx=%2264.1%22 cy=%2286%22 r=%2238%22 fill=%22url%28%23IconifyId-17c9b36d09b-d42344-3416%29%22/%3e%3cpath d=%22M78.3 95.2c0-8.3-7-9.9-7-9.9s6.3-2.6 6.3-9.4c0 0 .7-11.9-14.2-11.9c-9.6 0-14.1 5.9-14.1 11.5h8.4s0-4.7 5.9-4.7c5.8 0 5.6 5.5 5.6 5.5s.3 5.9-5.8 5.9h-5.1v6.6h5.2c6.3 0 6.3 5.9 6.3 5.9s.7 6.2-6.1 6.2c-6.4 0-6.5-5.2-6.5-5.2h-8.4c0 6.3 4.7 12.1 14.7 12.1c15.2-.1 14.8-12 14.8-12.6z%22 fill=%22%23d84315%22/%3e%3clinearGradient id=%22IconifyId-17c9b36d09b-d42344-3417%22 gradientUnits=%22userSpaceOnUse%22 x1=%2241.782%22 y1=%22122.817%22 x2=%2260.48%22 y2=%2282.63%22 gradientTransform=%22matrix%281 0 0 -1 0 127.89%29%22%3e%3cstop offset=%22.136%22 stop-color=%22%2364b5f6%22/%3e%3cstop offset=%22.946%22 stop-color=%22%232196f3%22/%3e%3c/linearGradient%3e%3cpath fill=%22url%28%23IconifyId-17c9b36d09b-d42344-3417%29%22 d=%22M79.9 46.2H48.4L22.3 4h31.5z%22/%3e%3cpath d=%22M53.6 4H50l24.5 39H50.1L25.7 4h-3.5l26.2 42h31.4L53.6 4z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3cpath d=%22M64 51c19.3 0 35 15.7 35 35s-15.7 35-35 35s-35-15.7-35-35s15.7-35 35-35m0-3c-21 0-38 17-38 38s17 38 38 38s38-17 38-38s-17-38-38-38z%22 fill=%22%23424242%22 opacity=%22.2%22/%3e%3c/svg%3e');
 }

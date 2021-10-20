@@ -23,12 +23,15 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { RulesComponent } from './rules/rules.component';
+import {MatListModule} from "@angular/material/list";
 @NgModule({
   declarations: [
     AppComponent,
     GameEntryComponent,
     GameLogsComponent,
-    StatsComponent
+    StatsComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     MatTableModule,
     MatPaginatorModule,
     MatSnackBarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
