@@ -3,13 +3,13 @@
     <mat-card-title>Add Game</mat-card-title>
     <mat-divider inset></mat-divider>
     <div>
-      <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle value="bold">Standard</mat-button-toggle>
-        <mat-button-toggle value="underline">Overtime</mat-button-toggle>
+      <mat-button-toggle-group value="Standard" appearance="legacy">
+        <mat-button-toggle value="Standard">Standard</mat-button-toggle>
+        <mat-button-toggle value="Overtime">Overtime</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
 
-    <label class="example-value-label">Team 1</label>
+    <label>Team 1</label>
     <div>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Player 1</mat-label>
@@ -29,6 +29,7 @@
       <label class="example-value-label">{{value}}</label>
     </div>
     <div>
+      <mat-divider inset></mat-divider>
       <label class="example-value-label">Team 2</label>
       <div>
         <mat-form-field class="example-full-width" appearance="fill">
@@ -61,7 +62,7 @@
       <button mat-raised-button color="primary" mat-stroked-button (click)="addGame('Game logged!', 'Close')">SAVE</button>
     </mat-card-actions>
     <mat-card-footer>
-      <mat-progress-bar id="saveGame" mode="indeterminate"></mat-progress-bar>
+<!--      <mat-progress-bar id="saveGame" mode="indeterminate"></mat-progress-bar>-->
     </mat-card-footer>
   </mat-card>
 </div>
