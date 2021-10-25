@@ -1,3 +1,5 @@
+$default-button-color: linear-gradient(135deg, #b9beff 0%, #c3e4ff 100%);
+
 #gameEntryContainer {
   display: flex;
   justify-content: space-evenly;
@@ -11,7 +13,7 @@ mat-form-field {
 mat-button-toggle-group {
   margin: 1em 0;
 }
-.mat-button-toggle-checked {
-  color:white;
-  background-color: #673AB7;
+.mat-button-toggle-checked, .mat-raised-button {
+  color:black;
+  background: $default-button-color;
 }
