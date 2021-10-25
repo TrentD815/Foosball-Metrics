@@ -11,9 +11,13 @@ mat-form-field {
   display: inherit;
 }
 mat-button-toggle-group {
-  margin: 1em 0;
+  margin: 1em 0 ;
 }
 .mat-button-toggle-checked, .mat-raised-button {
   color:black;
   background: $default-button-color;
+}
+
+mat-divider {
+  margin: .5em !important;
 }
