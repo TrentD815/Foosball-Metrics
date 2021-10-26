@@ -1,53 +1,73 @@
 <div id="gameEntryContainer">
-  <mat-card class="example-card">
+  <mat-card>
     <mat-card-title>Add Game</mat-card-title>
     <mat-divider inset></mat-divider>
     <div>
       <mat-button-toggle-group value="Standard" appearance="legacy">
-        <mat-button-toggle value="Standard">Standard</mat-button-toggle>
-        <mat-button-toggle value="Overtime">Overtime</mat-button-toggle>
+        <mat-button-toggle value="Standard">By Players</mat-button-toggle>
+        <mat-button-toggle value="Overtime">By Team</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-
     <label>Team 1</label>
     <div>
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field appearance="fill">
+        <mat-label>Choose Team</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="food">
+          <mat-option *ngFor="let team of teams" [value]="team.value">
+            {{team.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <label>OR</label>
+      <mat-form-field appearance="fill">
         <mat-label>Player 1</mat-label>
         <input matInput>
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Player 2</mat-label>
         <input matInput>
       </mat-form-field>
     </div>
     <div>
-      <mat-slider class="example-margin" [max]=10 [min]=0 [step]=1 [thumbLabel]=true
+      <mat-slider [max]=10 [min]=0 [step]=1 [thumbLabel]=true
                   [tickInterval]="getSliderTickInterval()" [(ngModel)]="value" [vertical]=false>
       </mat-slider>
-      <label class="example-value-label">{{value}}</label>
+      <label>{{value}}</label>
+      <div>
+        <mat-checkbox color="primary">Overtime?</mat-checkbox>
+      </div>
     </div>
     <div>
       <mat-divider inset></mat-divider>
-      <label class="example-value-label">Team 2</label>
+      <label >Team 2</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose Team</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="food">
+          <mat-option *ngFor="let team of teams" [value]="team.value">
+            {{team.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <label>OR</label>
       <div>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field  appearance="fill">
           <mat-label>Player 1</mat-label>
           <input matInput>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field  appearance="fill">
           <mat-label>Player 2</mat-label>
           <input matInput>
         </mat-form-field>
       </div>
       <div>
-        <mat-slider class="example-margin" [max]=10 [min]=0 [step]=1 [thumbLabel]=true
+        <mat-slider [max]=10 [min]=0 [step]=1 [thumbLabel]=true
                     [tickInterval]="getSliderTickInterval()" [(ngModel)]="value" [vertical]=false>
         </mat-slider>
-        <label class="example-value-label">{{value}}</label>
+        <label >{{value}}</label>
       </div>
     </div>
 <!--    <mat-divider [vertical]="true"></mat-divider>-->

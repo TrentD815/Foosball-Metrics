@@ -25,13 +25,18 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { RulesComponent } from './rules/rules.component';
 import {MatListModule} from "@angular/material/list";
+import {MatSelectModule} from "@angular/material/select";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import { TeamEntryComponent } from './team-entry/team-entry.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     GameEntryComponent,
     GameLogsComponent,
     StatsComponent,
-    RulesComponent
+    RulesComponent,
+    TeamEntryComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,9 @@ import {MatListModule} from "@angular/material/list";
     MatPaginatorModule,
     MatSnackBarModule,
     MatButtonToggleModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

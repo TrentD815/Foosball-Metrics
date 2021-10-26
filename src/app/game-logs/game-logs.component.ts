@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from '@angular/material/table';
 
-export interface PeriodicElement {
+export interface Game {
   matchNumber: number;
   score: string;
   team1: string;
@@ -10,7 +10,7 @@ export interface PeriodicElement {
   matchDate: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const data: Game[] = [
   {matchNumber: 1, score: '10-6', team1: 'Rob/Lou', team2: 'Trent/Adam', matchDate: '10/15/21'},
   {matchNumber: 2, score: '10-6', team1: "Rob/Lou", team2: 'Trent/Adam', matchDate: '10/15/21'},
   {matchNumber: 3, score: '10-6', team1: "Rob/Lou", team2: 'Trent/Adam', matchDate: '10/15/21'},
@@ -30,7 +30,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class GameLogsComponent implements OnInit {
   displayedColumns: string[] = ['matchNumber', 'score', 'team1', 'team2','matchDate'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Game>(data);
 
   constructor() {}
   ngOnInit(): void {}
