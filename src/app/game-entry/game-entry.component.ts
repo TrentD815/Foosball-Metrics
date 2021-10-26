@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatCheckboxChange} from "@angular/material/checkbox";
 
 interface Team {
   value: string;
@@ -20,6 +21,8 @@ export class GameEntryComponent implements OnInit {
   tickInterval = 1;
   toastDuration = 5;
   selectedValue ?: string;
+  max = 10;
+  isOvertime ?: boolean;
 
   constructor(private _snackBar: MatSnackBar) {}
 
@@ -39,5 +42,11 @@ export class GameEntryComponent implements OnInit {
   }
   addGame(message: string, action: string) {
     this._snackBar.open(message, action, {duration: this.toastDuration * 1000});
+  }
+
+  toggleOvertime(checked: boolean) {
+    (checked) ?  this.max = 15 : this.max = 10
+    this.isOvertime = this.isOvertime === checked;
+    if (this.value > 10) { this.value = 10; }
   }
 }

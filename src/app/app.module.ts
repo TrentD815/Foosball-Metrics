@@ -28,6 +28,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { TeamEntryComponent } from './team-entry/team-entry.component';
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { TeamEntryComponent } from './team-entry/team-entry.component';
     MatListModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

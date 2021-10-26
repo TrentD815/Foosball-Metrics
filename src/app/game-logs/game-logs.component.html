@@ -3,32 +3,35 @@
   <div id="gameLogsContainer">
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
-      <input matInput placeholder="Ex" #input>
+      <input (keyup)="applyFilter($event)" matInput placeholder="Ex" #input>
     </mat-form-field>
     <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" >
+    <table matSort mat-table [dataSource]="dataSource" >
       <ng-container matColumnDef="matchNumber">
-        <th mat-header-cell *matHeaderCellDef> Match No. </th>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Match No. </th>
         <td mat-cell *matCellDef="let element"> {{element.matchNumber}} </td>
       </ng-container>
       <ng-container matColumnDef="score">
-        <th mat-header-cell *matHeaderCellDef> Score </th>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Score </th>
         <td mat-cell *matCellDef="let element"> {{element.score}} </td>
       </ng-container>
       <ng-container matColumnDef="team1">
-        <th mat-header-cell *matHeaderCellDef> Team 1 </th>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Team 1 </th>
         <td mat-cell *matCellDef="let element"> {{element.team1}} </td>
       </ng-container>
       <ng-container matColumnDef="team2">
-        <th mat-header-cell *matHeaderCellDef> Team 2 </th>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Team 2 </th>
         <td mat-cell *matCellDef="let element"> {{element.team2}} </td>
       </ng-container>
       <ng-container matColumnDef="matchDate">
-        <th mat-header-cell *matHeaderCellDef> Match Date </th>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Match Date </th>
         <td mat-cell *matCellDef="let element"> {{element.matchDate}} </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="5">No data matching the filter "{{input.value}}"</td>
+      </tr>
     </table>
     <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
   </div>
