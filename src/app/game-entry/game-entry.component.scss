@@ -6,7 +6,6 @@ $default-button-color: linear-gradient(135deg, #b9beff 0%, #c3e4ff 100%);
   margin: 1em;
   text-align: center;
 }
-
 mat-form-field {
   display: inherit;
 }
@@ -17,11 +16,10 @@ mat-button-toggle-group {
   color:black;
   background: $default-button-color;
 }
-
 mat-divider {
   margin: .5em !important;
 }
-.hiddenByDefault {
+.hidden {
   display: none;
 }
 .vsContainer {
@@ -32,11 +30,10 @@ mat-divider {
   align-items: center;
   margin: 1em 0;
 }
-
 .vsLine {
   flex: 1;
 }
-
 .vsText {
   padding: 0 .5em;
 }
+

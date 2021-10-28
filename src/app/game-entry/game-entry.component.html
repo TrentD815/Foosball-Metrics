@@ -9,23 +9,23 @@
       <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
     <div>
-      <mat-button-toggle-group value="Standard" appearance="legacy">
-        <mat-button-toggle value="Standard">By Players</mat-button-toggle>
-        <mat-button-toggle value="Overtime">By Team</mat-button-toggle>
+      <mat-button-toggle-group (change)="toggleByPlayersOrTeam(group.value)" #group="matButtonToggleGroup" value="By Players" appearance="legacy">
+        <mat-button-toggle value="By Players">By Players</mat-button-toggle>
+        <mat-button-toggle value="By Team">By Team</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
     <label><b>Team 1</b></label>
-    <span class="hiddenByDefault">
+    <span id="team1Chooser" class="hidden">
       <mat-form-field appearance="fill">
         <mat-label>Choose Team</mat-label>
-        <mat-select [(ngModel)]="selectedValue" name="food">
+        <mat-select [(ngModel)]="selectedTeam1" name="food">
           <mat-option *ngFor="let team of teams" [value]="team.value">
             {{team.viewValue}}
           </mat-option>
         </mat-select>
       </mat-form-field>
     </span>
-    <div>
+    <div id="team1PlayerContainer">
       <mat-form-field appearance="fill">
         <mat-label>Player 1</mat-label>
         <input matInput>
@@ -37,10 +37,10 @@
     </div>
     <div>
       <mat-label>Score: </mat-label>
-      <mat-slider color="primary" id="sliderTeam1"  [max]="max" [min]=0 [step]=1 [thumbLabel]=true
-                  [tickInterval]="getSliderTickInterval()" [(ngModel)]="value" [vertical]=false>
+      <mat-slider color="primary" id="sliderTeam1" [max]="max" [min]=0 [step]=1 [thumbLabel]=true
+                  [tickInterval]="getSliderTickInterval()" [(ngModel)]="slider1Value" [vertical]=false>
       </mat-slider>
-      <label>{{value}}</label>
+      <label>{{slider1Value}}</label>
       <div>
         <mat-checkbox #overtime (change)="toggleOvertime(overtime.checked)" color="primary">Overtime?</mat-checkbox>
       </div>
@@ -52,41 +52,40 @@
         <mat-divider inset class="vsLine"></mat-divider>
       </div>
       <label><b>Team 2</b></label>
-      <span class="hiddenByDefault">
+      <span id="team2Chooser" class="hidden">
         <mat-form-field appearance="fill">
           <mat-label>Choose Team</mat-label>
-          <mat-select [(ngModel)]="selectedValue" name="food">
+          <mat-select [(ngModel)]="selectedTeam2" name="food">
             <mat-option *ngFor="let team of teams" [value]="team.value">
               {{team.viewValue}}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </span>
-      <div>
-        <mat-form-field  appearance="fill">
+      <div id="team2PlayerContainer">
+        <mat-form-field appearance="fill">
           <mat-label>Player 1</mat-label>
           <input matInput>
         </mat-form-field>
-        <mat-form-field  appearance="fill">
+        <mat-form-field appearance="fill">
           <mat-label>Player 2</mat-label>
           <input matInput>
         </mat-form-field>
       </div>
       <div>
         <mat-label>Score: </mat-label>
-        <mat-slider color="primary" id="sliderTeam2"[max]=10 [min]=0 [step]=1 [thumbLabel]=true
-                    [tickInterval]="getSliderTickInterval()" [(ngModel)]="value" [vertical]=false>
+        <mat-slider color="primary" id="sliderTeam2" [max]="max" [min]=0 [step]=1 [thumbLabel]=true
+                    [tickInterval]="getSliderTickInterval()" [(ngModel)]="slider2Value" [vertical]=false>
         </mat-slider>
-        <label >{{value}}</label>
+        <label>{{slider2Value}}</label>
       </div>
     </div>
     <mat-divider inset></mat-divider>
     <mat-card-actions>
-      <button mat-raised-button mat-stroked-button (click)="addGame('Game logged!', 'Close')">SAVE</button>
+      <button mat-raised-button mat-stroked-button (click)="addGame('Game logged successfully!', 'Close')">SAVE</button>
     </mat-card-actions>
     <mat-card-footer>
-      <mat-progress-bar class="hiddenByDefault" id="saveGame" mode="indeterminate"></mat-progress-bar>
+      <mat-progress-bar class="hidden" id="saveGame" mode="indeterminate"></mat-progress-bar>
     </mat-card-footer>
   </mat-card>
 </div>
-
