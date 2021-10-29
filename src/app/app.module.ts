@@ -29,6 +29,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { TeamEntryComponent } from './team-entry/team-entry.component';
 import {MatSortModule} from "@angular/material/sort";
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatSortModule} from "@angular/material/sort";
     StatsComponent,
     RulesComponent,
     TeamEntryComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

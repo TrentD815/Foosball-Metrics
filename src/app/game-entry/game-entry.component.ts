@@ -43,8 +43,11 @@ export class GameEntryComponent implements OnInit {
     }
     return 0;
   }
-  addGame(message: string, action: string) {
-    const isValidGame = this.checkValidGame(this.slider1Value, this.slider2Value)
+  addGame(action: string) {
+    const response = this.checkValidGame(this.slider1Value, this.slider2Value)
+    const isValidGame = response[0];
+    const message = response[1].toString();
+
     if (isValidGame) {
       const game = {
         date : this.date.value,
@@ -55,7 +58,7 @@ export class GameEntryComponent implements OnInit {
       this._snackBar.open(message, action, {duration: this.toastDuration * 1000});
     }
     else {
-      this._snackBar.open("One team must have at least 10 points to win!", action, {duration: this.toastDuration * 1000});
+        this._snackBar.open(message, action, {duration: this.toastDuration * 1000});
     }
   }
 
@@ -69,25 +72,36 @@ export class GameEntryComponent implements OnInit {
   toggleByPlayersOrTeam(playersOrTeam: string) {
     this.isByPlayerOrTeam = playersOrTeam;
     if (playersOrTeam === "By Players") {
-      console.log("players");
       document.getElementById("team1PlayerContainer")?.classList.remove("hidden");
       document.getElementById("team2PlayerContainer")?.classList.remove("hidden");
       document.getElementById("team1Chooser")?.classList.add("hidden");
       document.getElementById("team2Chooser")?.classList.add("hidden");
     }
     else {
-      console.log("team");
       document.getElementById("team1PlayerContainer")?.classList.add("hidden");
       document.getElementById("team2PlayerContainer")?.classList.add("hidden");
       document.getElementById("team1Chooser")?.classList.remove("hidden");
       document.getElementById("team2Chooser")?.classList.remove("hidden");
     }
   }
-  checkValidGame(score1: number, score2:number) {
+  checkValidGame(score1: number, score2: number) {
+    // Prevent unfinished game
     if (score1 < 10 && score2 < 10) {
-      return false
+      return [false, "One team must have at least 10 points to win!"]
     }
-    //TODO: Add logic for win by 2 must be exactly 2 differential
-    return true
+    // Prevent equal score game
+    else if (score1 === score2) {
+      return [false, "Teams cannot have the same score. One team must win!"]
+    }
+    // Edge case to allow for 15-14 ultimatum score
+    else if ((score1 === 15 || score2 === 15) && ((Math.abs(score1 - score2)) === 1)) {
+      return [true, "Game logged successfully!"]
+    }
+    // Don't allow breakage of Win By 2 rule for scores higher than 10
+    else if ((score1 > 10 || score2 > 10) && ((Math.abs(score1 - score2)) !== 2)) {
+      return [false, "The game went into overtime but a team did not win by exactly 2!"]
+    }
+    // Otherwise valid match
+    return [true, "Game logged successfully!"]
   }
 }
