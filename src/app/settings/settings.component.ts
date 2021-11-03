@@ -12,7 +12,9 @@ export class SettingsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  toggleTeamNameOverPlayers(checked: boolean) {}
+
+  toggleAllowOvertime(checked: boolean) {}
 }

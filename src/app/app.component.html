@@ -15,21 +15,46 @@
 
 <mat-tab-group dynamicHeight mat-align-tabs="center">
   <mat-tab label="Game Entry">
+    <ng-template mat-tab-label>
+      Game Entry
+      <mat-icon svgIcon="game-entry"></mat-icon>
+    </ng-template>
     <game-entry></game-entry>
   </mat-tab>
   <mat-tab label="Game Logs">
+    <ng-template mat-tab-label>
+      Game Logs
+      <mat-icon svgIcon="game-logs"></mat-icon>
+    </ng-template>
     <game-logs></game-logs>
   </mat-tab>
   <mat-tab label="Teams">
+    <ng-template mat-tab-label>
+      Teams
+      <mat-icon svgIcon="teams"></mat-icon>
+    </ng-template>
     <teams></teams>
   </mat-tab>
   <mat-tab label="Statistics">
+    <ng-template mat-tab-label>
+      Statistics
+      <mat-icon svgIcon="stats"></mat-icon>
+    </ng-template>
     <stats></stats>
   </mat-tab>
   <mat-tab label="Rules">
+    <ng-template mat-tab-label>
+      Rules
+      <mat-icon svgIcon="rules"></mat-icon>
+    </ng-template>
     <rules></rules>
   </mat-tab>
   <mat-tab label="Settings">
+    <ng-template mat-tab-label>
+      Settings
+      <mat-icon svgIcon="settings"></mat-icon>
+    </ng-template>
     <settings></settings>
   </mat-tab>
 </mat-tab-group>
+

@@ -2,7 +2,6 @@ $default-button-color: linear-gradient(135deg, #b9beff 0%, #c3e4ff 100%);
 
 #settingsContainer {
   display: flex;
-
   justify-content: space-evenly;
   margin: 1em;
   text-align: center;
@@ -10,4 +9,14 @@ $default-button-color: linear-gradient(135deg, #b9beff 0%, #c3e4ff 100%);
 .mat-button-toggle-checked, .mat-raised-button {
   color:black;
   background: $default-button-color;
+}
+.settingItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center !important;
+}
+mat-form-field {
+  width: 100px;
+  height: 50px;
+  margin-bottom: 0;
 }

@@ -3,9 +3,24 @@
     <mat-card-title>Settings</mat-card-title>
     <mat-divider inset></mat-divider>
     <br>
-    <mat-radio-button class="example-margin" value="before">Show team name instead of players</mat-radio-button>
+    <div class="settingItem">
+      <label>Show team names instead of individual players</label>
+      <mat-slide-toggle #showTeamNameOverPlayers labelPosition="before" (change)="toggleTeamNameOverPlayers(showTeamNameOverPlayers.checked)" color="primary"></mat-slide-toggle>
+    </div>
     <br>
-    <mat-radio-button class="example-margin" value="">Allow overtime</mat-radio-button>
+    <div class="settingItem">
+      <label>Allow Overtime</label>
+      <mat-slide-toggle #allowOvertime labelPosition="before" (change)="toggleAllowOvertime(allowOvertime.checked)" color="primary" checked></mat-slide-toggle>
+    </div>
+    <br>
+    <div class="settingItem">
+      <label>Max Allowed Score</label>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Max Value</mat-label>
+        <input matInput #maxAllowedScore  maxlength="2" placeholder="E.g. 10 or 15" value="15">
+      </mat-form-field>
+
+    </div>
     <br>
     <mat-divider inset></mat-divider>
     <mat-card-actions>

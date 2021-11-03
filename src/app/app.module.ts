@@ -31,6 +31,7 @@ import { TeamEntryComponent } from './team-entry/team-entry.component';
 import {MatSortModule} from "@angular/material/sort";
 import { SettingsComponent } from './settings/settings.component';
 import {MatRadioModule} from "@angular/material/radio";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import {MatRadioModule} from "@angular/material/radio";
         MatCheckboxModule,
         MatSortModule,
         MatRadioModule,
+        MatSlideToggleModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
