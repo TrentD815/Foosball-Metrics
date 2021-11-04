@@ -14,17 +14,16 @@
     </div>
     <br>
     <div class="settingItem">
-      <label>Max Allowed Score</label>
+      <label>Score Needed To Win</label>
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Max Value</mat-label>
-        <input matInput #maxAllowedScore  maxlength="2" placeholder="E.g. 10 or 15" value="15">
+        <mat-label>Score</mat-label>
+        <input matInput #scoreNeededToWin  maxlength="2" placeholder="E.g. 7 or 10" value="10">
       </mat-form-field>
-
     </div>
     <br>
     <mat-divider inset></mat-divider>
     <mat-card-actions>
-      <button mat-raised-button mat-stroked-button>SAVE</button>
+      <button mat-raised-button mat-stroked-button (click)="updateSettings('Close')">SAVE</button>
     </mat-card-actions>
   </mat-card>
 </div>

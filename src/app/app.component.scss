@@ -1,3 +1,4 @@
+// Background colors
 #gradient-canvas {
   width:100%;
   --gradient-color-1: #c3e4ff;
@@ -7,10 +8,11 @@
   position: absolute;
   z-index: -1;
 }
-
+//Allow background to overlay toolbar
 mat-toolbar {
   background-color: transparent;
 }
+
 .toolbar-spacer {
   flex: 1 1 auto;
 }
@@ -27,6 +29,7 @@ mat-toolbar {
   height: 24px;
   width: 24px;
 }
+// Put space between each icon and tab words
 .mat-icon {
   margin-left: .5em;
 }

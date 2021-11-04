@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'settings',
@@ -9,12 +10,17 @@ export class SettingsComponent implements OnInit {
   //TODO: Settings for:
   // 1) Switching between team names and actual names throughout site
   // 2) Turning off overtime, changing max overtime value, or standard match value
+  toastDuration = 5;
 
-  constructor() { }
+  constructor(private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
   toggleTeamNameOverPlayers(checked: boolean) {}
 
   toggleAllowOvertime(checked: boolean) {}
+
+  updateSettings(action: string) {
+    this._snackBar.open("Settings successfully updated!", action, {duration: this.toastDuration * 1000});
+  }
 }

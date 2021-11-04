@@ -1,20 +1,24 @@
 $default-button-color: linear-gradient(135deg, #b9beff 0%, #c3e4ff 100%);
 
+// Center Settings card
 #settingsContainer {
   display: flex;
   justify-content: space-evenly;
   margin: 1em;
   text-align: center;
 }
+// Change save button styling
 .mat-button-toggle-checked, .mat-raised-button {
   color:black;
   background: $default-button-color;
 }
+// Align each setting text to left and toggle/input to right
 .settingItem {
   display: flex;
   justify-content: space-between;
   align-items: center !important;
 }
+// Make input box a bit smaller. Default one is too large
 mat-form-field {
   width: 100px;
   height: 50px;

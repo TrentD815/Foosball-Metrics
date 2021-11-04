@@ -54,6 +54,7 @@ export class GameEntryComponent implements OnInit {
         team1Score : this.slider1Value,
         team2Score : this.slider2Value
       }
+      // TODO: Send off to DB to be saved
       console.log(game)
       this._snackBar.open(message, action, {duration: this.toastDuration * 1000});
     }
