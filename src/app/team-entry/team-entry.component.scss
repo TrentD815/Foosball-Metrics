@@ -1,6 +1,6 @@
 $default-button-color: linear-gradient(135deg, #b9beff 0%, #c3e4ff 100%);
 
-#teamEntryContainer {
+#teamsEntryContainer {
   display: flex;
   justify-content: space-evenly;
   margin: 1em;
@@ -18,6 +18,10 @@ $default-button-color: linear-gradient(135deg, #b9beff 0%, #c3e4ff 100%);
   text-align: center;
   flex-grow: 1;
 }
+#teamsGridContainer {
+  display: flex !important;
+  justify-content: space-evenly;
+}
 th {
   text-align: center !important;
   color: black;
@@ -34,7 +38,5 @@ table {
 }
 .mat-elevation-z8 {
   border-radius: .5em;
-}
-.teamsSpacer {
-  flex-grow: .5;
+  flex-grow: .4;
 }

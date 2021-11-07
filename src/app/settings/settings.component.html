@@ -4,7 +4,7 @@
     <mat-divider inset></mat-divider>
     <br>
     <div class="settingItem">
-      <label>Show team names instead of individual players</label>
+      <label>Show Team Names Instead Of Players</label>
       <mat-slide-toggle #showTeamNameOverPlayers labelPosition="before" (change)="toggleTeamNameOverPlayers(showTeamNameOverPlayers.checked)" color="primary"></mat-slide-toggle>
     </div>
     <br>
@@ -15,9 +15,17 @@
     <br>
     <div class="settingItem">
       <label>Score Needed To Win</label>
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="max-score-input" appearance="fill">
         <mat-label>Score</mat-label>
         <input matInput #scoreNeededToWin  maxlength="2" placeholder="E.g. 7 or 10" value="10">
+      </mat-form-field>
+    </div>
+    <br>
+    <div class="settingItem">
+      <label>Table Location</label>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Table Location</mat-label>
+        <input matInput #tableLocation  maxlength="100" placeholder="E.g. CSols Office" value="">
       </mat-form-field>
     </div>
     <br>
