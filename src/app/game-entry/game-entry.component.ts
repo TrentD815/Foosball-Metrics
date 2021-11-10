@@ -24,17 +24,21 @@ export class GameEntryComponent implements OnInit {
   selectedTeam1 ?: string;
   selectedTeam2 ?: string;
   max = 10;
-  isOvertime ?: boolean;
+  isOvertime = false;
   isByPlayerOrTeam ?: string;
+  player1Team1 ?: string;
+  player2Team1 ?: string;
+  player1Team2 ?: string;
+  player2Team2 ?: string;
 
   constructor(private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
   teams: Team[] = [
-    {value: 'team-0', viewValue: 'Trent/Adam'},
-    {value: 'team-1', viewValue: 'Rob/Lou'},
-    {value: 'team-2', viewValue: 'Rob/Matt'}
+    {value: 'Dev Team', viewValue: 'Dev Team'},
+    {value: 'Sales Team', viewValue: 'Sales Team'},
+    {value: 'Sales Alternate Team', viewValue: 'Sales Alternate Team'}
   ];
 
   getSliderTickInterval(): number | 'auto' {
@@ -49,10 +53,27 @@ export class GameEntryComponent implements OnInit {
     const message = response[1].toString();
 
     if (isValidGame) {
-      const game = {
+      let game = {
         date : this.date.value,
         team1Score : this.slider1Value,
-        team2Score : this.slider2Value
+        team2Score : this.slider2Value,
+        isOvertime: this.isOvertime,
+      }
+      if (this.isByPlayerOrTeam === "By Players") {
+        // @ts-ignore
+        game["player1Team1"] = this.player1Team1;
+        // @ts-ignore
+        game["player2Team1"] = this.player2Team1;
+        // @ts-ignore
+        game["player1Team2"] = this.player1Team2;
+        // @ts-ignore
+        game["player2Team2"] = this.player2Team2;
+      }
+      else {
+        // @ts-ignore
+        game["selectedTeam1"] = this.selectedTeam1;
+        // @ts-ignore
+        game["selectedTeam2"] = this.selectedTeam2;
       }
       // TODO: Send off to DB to be saved
       console.log(game)

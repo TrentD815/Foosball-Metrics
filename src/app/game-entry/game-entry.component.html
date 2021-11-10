@@ -4,9 +4,9 @@
     <mat-divider inset></mat-divider>
     <mat-form-field appearance="fill">
       <mat-label>Match Date</mat-label>
-      <input matInput [matDatepicker]="picker1" [formControl]="date">
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
+      <input matInput [matDatepicker]="datepicker" [formControl]="date">
+      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker></mat-datepicker>
     </mat-form-field>
     <div>
       <mat-button-toggle-group (change)="toggleByPlayersOrTeam(group.value)" #group="matButtonToggleGroup" value="By Players" appearance="legacy">
@@ -28,11 +28,11 @@
     <div id="team1PlayerContainer">
       <mat-form-field appearance="fill">
         <mat-label>Player 1</mat-label>
-        <input matInput>
+        <input [(ngModel)]="player1Team1" matInput>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Player 2</mat-label>
-        <input matInput>
+        <input [(ngModel)]="player2Team1" matInput>
       </mat-form-field>
     </div>
     <div>
@@ -65,11 +65,11 @@
       <div id="team2PlayerContainer">
         <mat-form-field appearance="fill">
           <mat-label>Player 1</mat-label>
-          <input matInput>
+          <input [(ngModel)]="player1Team2"matInput>
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Player 2</mat-label>
-          <input matInput>
+          <input [(ngModel)]="player2Team2" matInput>
         </mat-form-field>
       </div>
       <div>

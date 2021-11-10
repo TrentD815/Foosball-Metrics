@@ -25,10 +25,20 @@ export class TeamEntryComponent implements OnInit {
   displayedColumns: string[] = ['teamName', 'player1', 'player2'];
   dataSource = new MatTableDataSource<Team>(data);
   toastDuration = 5;
+  teamName ?: string;
+  player1Name ?: string;
+  player2Name ?: string;
+
   constructor(private _snackBar: MatSnackBar) {}
   ngOnInit(): void {}
 
   addTeam(message: string, action: string) {
+    const newTeam = {
+      teamName: this.teamName,
+      player1Name: this.player1Name,
+      player2Name: this.player2Name
+    }
+    console.log(newTeam)
     this._snackBar.open(message, action, {duration: this.toastDuration * 1000});
   }
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined
