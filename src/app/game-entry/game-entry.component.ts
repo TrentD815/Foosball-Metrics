@@ -20,12 +20,12 @@ export class GameEntryComponent implements OnInit {
   slider1Value = 0;
   slider2Value = 0;
   tickInterval = 1;
-  toastDuration = 5;
+  toastDuration = 5000;   //milliseconds
   selectedTeam1 ?: string;
   selectedTeam2 ?: string;
   max = 10;
   isOvertime = false;
-  isByPlayerOrTeam ?: string;
+  isByPlayerOrTeam = "By Players";
   player1Team1 ?: string;
   player2Team1 ?: string;
   player1Team2 ?: string;
@@ -48,40 +48,27 @@ export class GameEntryComponent implements OnInit {
     return 0;
   }
   addGame(action: string) {
-    const response = this.checkValidGame(this.slider1Value, this.slider2Value)
-    const isValidGame = response[0];
-    const message = response[1].toString();
+    const gameScoreResponse = this.checkValidGameScore(this.slider1Value, this.slider2Value)
+    const isValidGameScore = gameScoreResponse[0];
+    let message = gameScoreResponse[1].toString();
 
-    if (isValidGame) {
+    if (isValidGameScore) {
       let game = {
         date : this.date.value,
         team1Score : this.slider1Value,
         team2Score : this.slider2Value,
         isOvertime: this.isOvertime,
       }
-      if (this.isByPlayerOrTeam === "By Players") {
-        // @ts-ignore
-        game["player1Team1"] = this.player1Team1;
-        // @ts-ignore
-        game["player2Team1"] = this.player2Team1;
-        // @ts-ignore
-        game["player1Team2"] = this.player1Team2;
-        // @ts-ignore
-        game["player2Team2"] = this.player2Team2;
-      }
-      else {
-        // @ts-ignore
-        game["selectedTeam1"] = this.selectedTeam1;
-        // @ts-ignore
-        game["selectedTeam2"] = this.selectedTeam2;
-      }
-      // TODO: Send off to DB to be saved
+
+      const teamPlayersResponse = this.checkValidTeamPlayers();
+      const isValidTeam = teamPlayersResponse[0];
+
+      // If the team name is entered correctly, add it to the game object, otherwise change the error message
+      (isValidTeam) ? this.addPlayersOrTeamToGameData(game) : message = teamPlayersResponse[1].toString();
+      //TODO: Save game to DB if all checks pass
       console.log(game)
-      this._snackBar.open(message, action, {duration: this.toastDuration * 1000});
     }
-    else {
-        this._snackBar.open(message, action, {duration: this.toastDuration * 1000});
-    }
+    this._snackBar.open(message, action, {duration: this.toastDuration});
   }
 
   toggleOvertime(checked: boolean) {
@@ -106,7 +93,7 @@ export class GameEntryComponent implements OnInit {
       document.getElementById("team2Chooser")?.classList.remove("hidden");
     }
   }
-  checkValidGame(score1: number, score2: number) {
+  checkValidGameScore(score1: number, score2: number) {
     // Prevent unfinished game
     if (score1 < 10 && score2 < 10) {
       return [false, "One team must have at least 10 points to win!"]
@@ -125,5 +112,51 @@ export class GameEntryComponent implements OnInit {
     }
     // Otherwise valid match
     return [true, "Game logged successfully!"]
+  }
+
+  // Check a few conditions
+  checkValidTeamPlayers() {
+    console.log(this.isByPlayerOrTeam)
+    if (this.isByPlayerOrTeam === "By Players") {
+      // Check all fields are filled out
+      if (!this.player1Team1?.trim() || !this.player2Team1?.trim() || !this.player1Team2?.trim() || !this.player2Team2?.trim()) {
+        return [false, "Be sure to enter a name for each player!"]
+      }
+      // Force names to be unique
+      else if ((this.player1Team1 === this.player2Team1) || (this.player1Team2 === this.player2Team2)) {
+        return [false, "A team cannot have 2 of the same player!"]
+      }
+    }
+    else {
+      //Check al fields are filled out
+      if (!this.selectedTeam1?.trim() || !this.selectedTeam2?.trim()) {
+        return [false, "Be sure to select 2 different teams!"]
+      }
+      // Make sure same team is not chosen twice
+      else if (this.selectedTeam1 === this.selectedTeam2) {
+        return [false, "The same team cannot play each other!"]
+      }
+    }
+    return [true, "Team added successfully!"]   // Not used but here for continuity
+  }
+
+  // Add players to game object depending on choice
+  addPlayersOrTeamToGameData(game: any) {
+    if (this.isByPlayerOrTeam === "By Players") {
+      // @ts-ignore
+      game["player1Team1"] = this.player1Team1;
+      // @ts-ignore
+      game["player2Team1"] = this.player2Team1;
+      // @ts-ignore
+      game["player1Team2"] = this.player1Team2;
+      // @ts-ignore
+      game["player2Team2"] = this.player2Team2;
+    }
+    else {
+      // @ts-ignore
+      game["selectedTeam1"] = this.selectedTeam1;
+      // @ts-ignore
+      game["selectedTeam2"] = this.selectedTeam2;
+    }
   }
 }
