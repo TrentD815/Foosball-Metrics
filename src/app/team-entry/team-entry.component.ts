@@ -10,11 +10,12 @@ export interface Team {
   player2: string;
 }
 const data: Team[] = [
-  {teamName: 'Dev Team', player1: 'Trent Davis', player2: 'Adam Bennett'},
-  {teamName: "Sales Team", player1: 'Rob Cathell', player2: 'Lou Raymond'},
-  {teamName: "Sales Team #2", player1: 'Rob Cathell', player2: 'Matt Cayer'},
-  {teamName: "The Kyles", player1: 'Kyle McDuffie', player2: 'Kyle Brown'},
-  {teamName: "Kyle & Tim", player1: 'Kyle McDuffie', player2: 'Tim Histen'},
+  {teamName: 'Dev Team', player1: 'Trent D.', player2: 'Adam B.'},
+  {teamName: "Sales Team", player1: 'Rob C.', player2: 'Lou R.'},
+  {teamName: "Sales Alternate Team", player1: 'Rob C.', player2: 'Matt C.'},
+  {teamName: "The Kyles", player1: 'Kyle M.', player2: 'Kyle B.'},
+  {teamName: "Kyle & Tim", player1: 'Kyle M.', player2: 'Tim H.'},
+  {teamName: "Trent & Lou", player1: 'Trent D.', player2: 'Lou R.'},
 ]
 @Component({
   selector: 'teams',
