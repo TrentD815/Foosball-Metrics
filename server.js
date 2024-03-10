@@ -1,24 +1,15 @@
-const express = require("express")
-const MongoDB = require("mongodb");
-import { environment } from 'src/environments/environment';
-
+import express from 'express'
 const app = express()
-const DB_URI = environment.dbConnectionString
-const port = environment.port;
-
-const { connectToDatabase } = require('./src/services/database.service.ts')
-const gamesRouter = require('./src/routes/games.router.ts');
-
-const client = new MongoDB.MongoClient(DB_URI);
+const port = process.env.PORT;
+import { connectToDatabase } from './src/services/database.service.js'
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
 })
-
-await connectToDatabase().catch((error) => {
+connectToDatabase().catch((error) => {
     console.error("Database connection failed", error);
     process.exit(1);
-  });
+});
 
 // Adding listeners
 // function setupListeners(client: MongoClient){
