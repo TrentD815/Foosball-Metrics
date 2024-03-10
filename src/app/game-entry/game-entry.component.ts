@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from "@angular/forms";
+import {UntypedFormControl} from "@angular/forms";
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatCheckboxChange} from "@angular/material/checkbox";
 
@@ -14,7 +14,7 @@ interface Team {
   styleUrls: ['./game-entry.component.scss','../app.component.scss']
 })
 export class GameEntryComponent implements OnInit {
-  date = new FormControl(new Date());
+  date = new UntypedFormControl(new Date());
   autoTicks = false;
   showTicks = true;
   slider1Value = 0;
