@@ -32,6 +32,7 @@ import {MatSortModule} from "@angular/material/sort";
 import { SettingsComponent } from './settings/settings.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
         MatSortModule,
         MatRadioModule,
         MatSlideToggleModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
