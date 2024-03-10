@@ -1,47 +1,47 @@
-const dotenv = require("dotenv");
-dotenv.config({ path: __dirname+'/.env' });
 const express = require("express")
 const MongoDB = require("mongodb");
+import { environment } from 'src/environments/environment';
 
-const DB_URI = process.env.DB_CONN_STRING
 const app = express()
-const port = process.env.PORT;
+const DB_URI = environment.dbConnectionString
+const port = environment.port;
 
-const connectToDatabase = require('./src/services/database.service.ts')
+const { connectToDatabase } = require('./src/services/database.service.ts')
 const gamesRouter = require('./src/routes/games.router.ts');
 
 const client = new MongoDB.MongoClient(DB_URI);
 
-// async function connectToDatabase () {
-//   try {
-//     await client.connect()
-//     const db = client.db(process.env.DB_NAME);
-//     const foosballCollection = db.collection(process.env.COLLECTION_NAME);
-//     console.log(`Successfully connected to database: ${db.databaseName} and collection: ${foosballCollection.collectionName}`);
-//   }
-//   catch (err) {
-//     console.error(`Database connection failed ${err}`)
-//     process.exit();
-//   }
-// }
-// connectToDatabase()
+app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}`)
+})
 
-// app.listen(port, () => {
-//   console.log(`Listening at http://localhost:${port}`)
-// })
-
-connectToDatabase()
-  .then(() => {
-    app.use("/games", gamesRouter);
-
-    app.listen(port, () => {
-      console.log(`Server started at http://localhost:${port}`);
-    });
-  })
-  .catch((error) => {
+await connectToDatabase().catch((error) => {
     console.error("Database connection failed", error);
-    process.exit();
+    process.exit(1);
   });
 
-
+// Adding listeners
+// function setupListeners(client: MongoClient){
+//   client.addListener('topologyClosed', ()=>{
+//     isTopologyConnected = false;
+//     console.warn("topologyClosed");
+//   })
+// }
+// process.on("exit", () => {
+//   console.log("EXIT - MongoDB Client disconnected");
+//   closeConnection()
+// });
+//
+// //Cleanups
+// //catching signals and doing cleanup
+// ['SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
+//   'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
+// ].forEach(function (signal) {
+//   process.on(signal, function () {
+//     if (isTopologyConnected){
+//       client.close();
+//     }
+//     process.exit(1);
+//   });
+// });
 

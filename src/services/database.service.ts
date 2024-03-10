@@ -1,16 +1,13 @@
 import * as mongoDB from "mongodb";
-import * as dotenv from "dotenv";
+import { environment } from 'src/environments/environment';
 
 export const collections: { games?: mongoDB.Collection } = {}
 
-export async function connectToDatabase () {
-  dotenv.config();
-  // @ts-ignore
-  const client: mongoDB.MongoClient = new mongoDB.MongoClient(process.env.DB_CONN_STRING);
+export async function connectToDatabase() {
+  const client: mongoDB.MongoClient = new mongoDB.MongoClient(environment.dbConnectionString);
   await client.connect();
-  const db: mongoDB.Db = client.db(process.env.DB_NAME);
-  // @ts-ignore
-  const gamesCollection: mongoDB.Collection = db.collection(process.env.GAMES_COLLECTION_NAME);
+  const db: mongoDB.Db = client.db(environment.dbName);
+  const gamesCollection: mongoDB.Collection = db.collection(environment.dbCollection);
   collections.games = gamesCollection;
   console.log(`Successfully connected to database: ${db.databaseName} and collection: ${gamesCollection.collectionName}`);
 }
