@@ -1,5 +1,5 @@
 <div id="gameEntryContainer">
-  <mat-card>
+  <mat-card appearance="outlined">
     <mat-card-title>Add Game</mat-card-title>
     <mat-divider inset></mat-divider>
     <mat-form-field appearance="fill">
@@ -37,8 +37,9 @@
     </div>
     <div>
       <mat-label>Score: </mat-label>
-      <mat-slider color="primary" id="sliderTeam1" [max]="max" [min]=0 [step]=1 [thumbLabel]=true
-                  [tickInterval]="getSliderTickInterval()" [(ngModel)]="slider1Value" [vertical]=false>
+      <!-- TODO: The 'tickInterval' property no longer exists -->
+      <!-- TODO: The 'vertical' property no longer exists -->
+      <mat-slider color="primary" id="sliderTeam1" [max]="max" [min]=0 [step]=1 [thumbLabel]=true [(ngModel)]="slider1Value"><input matSliderThumb />
       </mat-slider>
       <label>{{slider1Value}}</label>
       <div>
@@ -74,8 +75,9 @@
       </div>
       <div>
         <mat-label>Score: </mat-label>
-        <mat-slider color="primary" id="sliderTeam2" [max]="max" [min]=0 [step]=1 [thumbLabel]=true
-                    [tickInterval]="getSliderTickInterval()" [(ngModel)]="slider2Value" [vertical]=false>
+        <!-- TODO: The 'tickInterval' property no longer exists -->
+        <!-- TODO: The 'vertical' property no longer exists -->
+        <mat-slider color="primary" id="sliderTeam2" [max]="max" [min]=0 [step]=1 [thumbLabel]=true [(ngModel)]="slider2Value"><input matSliderThumb />
         </mat-slider>
         <label>{{slider2Value}}</label>
       </div>

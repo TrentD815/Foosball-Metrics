@@ -6,7 +6,8 @@ $default-button-color: linear-gradient(135deg, #b9beff 0%, #c3e4ff 100%);
   margin: 1em;
   text-align: center;
 }
-.mat-button-toggle-checked, .mat-raised-button {
+/* TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version. */
+.mat-button-toggle-checked, .mat-mdc-raised-button {
   color:black;
   background: $default-button-color;
 }
@@ -29,11 +30,11 @@ th {
 table {
   width: 100%;
 }
-.mat-table {
+.mat-mdc-table {
   border-radius: .5em .5em 0 0;
   overflow:hidden !important;
 }
-.mat-paginator {
+.mat-mdc-paginator {
   border-radius:  0 0 .5em .5em;
 }
 .mat-elevation-z8 {

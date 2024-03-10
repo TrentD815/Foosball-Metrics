@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UntypedFormControl} from "@angular/forms";
-import {MatLegacySnackBar as MatSnackBar} from '@angular/material/legacy-snack-bar';
-import {MatLegacyCheckboxChange as MatCheckboxChange} from "@angular/material/legacy-checkbox";
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatCheckboxChange} from "@angular/material/checkbox";
 
 interface Team {
   value: string;
