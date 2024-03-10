@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "foosball-metrics:build:production"
+              "buildTarget": "foosball-metrics:build:production"
             },
             "development": {
-              "browserTarget": "foosball-metrics:build:development"
+              "buildTarget": "foosball-metrics:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "foosball-metrics:build"
+            "buildTarget": "foosball-metrics:build"
           }
         },
         "test": {
