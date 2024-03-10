@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatLegacySnackBar as MatSnackBar} from '@angular/material/legacy-snack-bar';
 import {Game} from "../game-logs/game-logs.component";
-import {MatTableDataSource} from "@angular/material/table";
-import {MatPaginator} from "@angular/material/paginator";
+import {MatLegacyTableDataSource as MatTableDataSource} from "@angular/material/legacy-table";
+import {MatLegacyPaginator as MatPaginator} from "@angular/material/legacy-paginator";
 
 export interface Team {
   teamName: string;
