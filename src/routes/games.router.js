@@ -5,7 +5,8 @@ gamesRouter.use(express.json())
 gamesRouter.get('/games', async (req, res) => {
   try {
     const collection = req.collection
-    const games = await collection.find({object: 'games'}).toArray()
+    const projection = { _id: 0, object: 0 }
+    const games = await collection.find({object: 'games'}).project(projection).toArray()
     res.status(200).send(games);
   } catch (error) {
     res.status(500).send(error.message);
@@ -14,11 +15,12 @@ gamesRouter.get('/games', async (req, res) => {
 
 gamesRouter.post('/games', async (req, res) => {
   try {
+    let newGame = req.body;
+    newGame.object = 'games'
+    console.log("GAME BEING INSERTED", newGame)
     const collection = req.collection
-    req.body.game = {matchNumber: 3, score: '10-11', team1: "Rob/Lou", team2: 'Trent/Adam', matchDate: '9/29/21', object: "games"}
-    const newGame = req.body.game;
     const result = await collection.insertOne(newGame)
-    res.status(201).send(`Successfully created a new game with id: ${result.insertedId}`)
+    res.status(201).send(newGame)
   } catch (error) {
     console.error(error);
     res.status(500).send(error.message);

@@ -37,11 +37,10 @@
     </div>
     <div>
       <mat-label>Score: </mat-label>
-      <!-- TODO: The 'tickInterval' property no longer exists -->
-      <!-- TODO: The 'vertical' property no longer exists -->
-      <mat-slider color="primary" id="sliderTeam1" [max]="max" [min]=0 [step]=1 [(ngModel)]="slider1Value"><input matSliderThumb />
+      <mat-slider [showTickMarks]="showTicks" color="primary" id="sliderTeam1" [max]="max" [min]=0 [step]=1 >
+        <input matSliderThumb #slider1 [(ngModel)]="slider1Value"/>
       </mat-slider>
-      <label>{{slider1Value}}</label>
+      <label>{{ slider1.value }}</label>
       <div>
         <mat-checkbox #overtime (change)="toggleOvertime(overtime.checked)" color="primary">Overtime?</mat-checkbox>
       </div>
@@ -75,11 +74,10 @@
       </div>
       <div>
         <mat-label>Score: </mat-label>
-        <!-- TODO: The 'tickInterval' property no longer exists -->
-        <!-- TODO: The 'vertical' property no longer exists -->
-        <mat-slider color="primary" id="sliderTeam2" [max]="max" [min]=0 [step]=1 [(ngModel)]="slider2Value"><input matSliderThumb />
+        <mat-slider [showTickMarks]="showTicks" color="primary" id="sliderTeam2" [max]="max" [min]=0 [step]=1 >
+          <input matSliderThumb #slider2 [(ngModel)]="slider2Value"/>
         </mat-slider>
-        <label>{{slider2Value}}</label>
+        <label>{{ slider2.value }}</label>
       </div>
     </div>
     <mat-divider inset></mat-divider>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UntypedFormControl} from "@angular/forms";
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatCheckboxChange} from "@angular/material/checkbox";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 interface Team {
   value: string;
@@ -15,11 +16,11 @@ interface Team {
 })
 export class GameEntryComponent implements OnInit {
   date = new UntypedFormControl(new Date());
-  autoTicks = false;
+  //autoTicks = false;
   showTicks = true;
   slider1Value = 0;
   slider2Value = 0;
-  tickInterval = 1;
+  //tickInterval = 1;
   toastDuration = 5000;   //milliseconds
   selectedTeam1 ?: string;
   selectedTeam2 ?: string;
@@ -31,7 +32,7 @@ export class GameEntryComponent implements OnInit {
   player1Team2 ?: string;
   player2Team2 ?: string;
 
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private _snackBar: MatSnackBar, private http: HttpClient) {}
 
   ngOnInit(): void {}
 
@@ -41,17 +42,18 @@ export class GameEntryComponent implements OnInit {
     {value: 'Sales Alternate Team', viewValue: 'Sales Alternate Team'}
   ];
 
-  getSliderTickInterval(): number | 'auto' {
-    if (this.showTicks) {
-      return this.autoTicks ? 'auto' : this.tickInterval;
-    }
-    return 0;
-  }
+  // getSliderTickInterval(): number | 'auto' {
+  //   if (this.showTicks) {
+  //     return this.autoTicks ? 'auto' : this.tickInterval;
+  //   }
+  //   return 0;
+  // }
   addGame(action: string) {
     const gameScoreResponse = this.checkValidGameScore(this.slider1Value, this.slider2Value)
     const isValidGameScore = gameScoreResponse[0];
     let message = gameScoreResponse[1].toString();
-
+    console.log(this.slider2Value)
+    console.log(this.slider1Value)
     if (isValidGameScore) {
       let game = {
         date : this.date.value,
@@ -64,11 +66,20 @@ export class GameEntryComponent implements OnInit {
       const isValidTeam = teamPlayersResponse[0];
 
       // If the team name is entered correctly, add it to the game object, otherwise change the error message
-      (isValidTeam) ? this.addPlayersOrTeamToGameData(game) : message = teamPlayersResponse[1].toString();
-      //TODO: Save game to DB if all checks pass
-      console.log(game)
+      if (isValidTeam) {
+        this.addPlayersOrTeamToGameData(game)
+        console.log("SAVING GAME", game)
+        const result = this.http.post<any>('http://localhost:4100/games', game).subscribe(response => {
+          console.log(response)
+        })
+      } else {
+        message = teamPlayersResponse[1].toString();
+        this._snackBar.open(message, action, {duration: this.toastDuration});
+        return
+      }
     }
     this._snackBar.open(message, action, {duration: this.toastDuration});
+    return
   }
 
   toggleOvertime(checked: boolean) {
@@ -128,7 +139,7 @@ export class GameEntryComponent implements OnInit {
       }
     }
     else {
-      //Check al fields are filled out
+      //Check all fields are filled out
       if (!this.selectedTeam1?.trim() || !this.selectedTeam2?.trim()) {
         return [false, "Be sure to select 2 different teams!"]
       }
