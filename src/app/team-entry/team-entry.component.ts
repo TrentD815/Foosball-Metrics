@@ -1,22 +1,16 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {Game} from "../game-logs/game-logs.component";
-import {MatTableDataSource} from "@angular/material/table";
-import {MatPaginator} from "@angular/material/paginator";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableDataSource } from "@angular/material/table";
+import { MatPaginator } from "@angular/material/paginator";
+import { HttpClient } from '@angular/common/http';
+import { MatSort } from "@angular/material/sort";
 
 export interface Team {
   teamName: string;
   player1: string;
   player2: string;
 }
-const data: Team[] = [
-  {teamName: 'Dev Team', player1: 'Trent D.', player2: 'Adam B.'},
-  {teamName: "Sales Team", player1: 'Rob C.', player2: 'Lou R.'},
-  {teamName: "Sales Alternate Team", player1: 'Rob C.', player2: 'Matt C.'},
-  {teamName: "The Kyles", player1: 'Kyle M.', player2: 'Kyle B.'},
-  {teamName: "Kyle & Tim", player1: 'Kyle M.', player2: 'Tim H.'},
-  {teamName: "Trent & Lou", player1: 'Trent D.', player2: 'Lou R.'},
-]
+const data: Team[] = []
 @Component({
   selector: 'teams',
   templateUrl: './team-entry.component.html',
@@ -24,21 +18,20 @@ const data: Team[] = [
 })
 export class TeamEntryComponent implements OnInit {
   displayedColumns: string[] = ['teamName', 'player1', 'player2'];
-  dataSource = new MatTableDataSource<Team>(data);
+  dataSource: any
   toastDuration = 5;
   teamName ?: string;
   player1Name ?: string;
   player2Name ?: string;
-
-  constructor(private _snackBar: MatSnackBar) {}
-
-  ngOnInit(): void {}
-
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined
-
-  ngAfterViewInit() {
-    // @ts-ignore
-    this.dataSource.paginator = this.paginator;
+  @ViewChild(MatSort) sort?: MatSort;
+  constructor(private _snackBar: MatSnackBar, private http: HttpClient) {}
+  ngOnInit(): void {
+    this.http.get<any>('http://localhost:4100/teams').subscribe(response => {
+      this.dataSource = new MatTableDataSource<Team>(response);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
   }
 
   addTeam(action: string) {
@@ -49,12 +42,13 @@ export class TeamEntryComponent implements OnInit {
     if (isValidTeam) {
       const newTeam = {
         teamName: this.teamName,
-        player1Name: this.player1Name,
-        player2Name: this.player2Name
+        player1: this.player1Name,
+        player2: this.player2Name
       }
-      //TODO: Send team off to be saved in DB
       console.log(newTeam)
-
+      const result = this.http.post<any>('http://localhost:4100/teams', newTeam).subscribe(response => {
+        console.log(response)
+      })
     }
     this._snackBar.open(message, action, {duration: this.toastDuration * 1000});
   }
@@ -68,7 +62,7 @@ export class TeamEntryComponent implements OnInit {
       }
       // Force names to be more differentiated
       else if (player1Name === player2Name) {
-        return [false, "A team cannot have 2 of the same player!"]
+        return [false, "A team cannot have 2 of the same player. Please differentiate between the players."]
       }
       else {
         return [true, "Team added successfully!"]

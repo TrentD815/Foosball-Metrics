@@ -1,7 +1,7 @@
 <div id="gameLogsTab">
   <div class="gameLogsSpacer"></div>
   <div id="gameLogsContainer">
-    <mat-form-field>
+    <mat-form-field #searchBox>
       <mat-label>Search by team, date, score, or match number...</mat-label>
       <input autocomplete="off" (keyup)="applyFilter($event)" matInput placeholder="" #input>
     </mat-form-field>

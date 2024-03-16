@@ -54,10 +54,6 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.CreateGradient()
-    console.log("FETCHING GAMES")
-    const result = this.http.get<any>('http://localhost:4100/games').subscribe(games => {
-      console.log(games)
-    })
   }
 
   async CreateGradient() {

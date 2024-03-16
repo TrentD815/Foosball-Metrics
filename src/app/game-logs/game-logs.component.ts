@@ -31,8 +31,8 @@ export class GameLogsComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Game>(response);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    }
-  )}
+    })
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
