@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
-import {MatIconRegistry} from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 // @ts-ignore
 import { Gradient } from './Gradient.js'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -50,7 +50,6 @@ export class AppComponent {
     iconRegistry.addSvgIconLiteral('game-logs', sanitizer.bypassSecurityTrustHtml(GameLogsIcon));
     iconRegistry.addSvgIconLiteral('game-entry', sanitizer.bypassSecurityTrustHtml(GameEntryIcon));
     iconRegistry.addSvgIconLiteral('rules', sanitizer.bypassSecurityTrustHtml(RulesIcon));
-
   }
 
   ngOnInit(): void {
@@ -60,7 +59,6 @@ export class AppComponent {
       console.log(games)
     })
   }
-
 
   async CreateGradient() {
     const gradient = new Gradient();
