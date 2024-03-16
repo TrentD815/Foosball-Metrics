@@ -1,15 +1,7 @@
 <main>
   <ol class="gradient-list">
-    <li>First to 10 points wins. A "Win By 2" may rule may be added if both teams agree.
-      If both agree then the game goes into Overtime. The game goes on until one team
-      goes up by 2 or first to 15 as an ultimatum.</li>
-    <li>No spinning the sticks. This is to force more thoughtful gameplay.</li>
-    <li>If the ball becomes unreachable, any player may gently nudge the ball with their
-      finger or pick it up and place it in their serving entrance.</li>
-    <li>If a ball is struck in such a way where it bounces into the goal and then out again onto
-      the field, the ball is considered still live and is not a goal.</li>
-    <li>If a ball is struck in such a way where it bounces out of the field completely, any player
-      can pick it up and place it in their serving entrance.</li>
-    <li>Players should shake hands and sanitize after every game</li>
+    <ng-container *ngFor="let rule of dataSource">
+      <li>{{ rule }}</li>
+    </ng-container>
   </ol>
 </main>

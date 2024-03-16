@@ -36,11 +36,7 @@ export class GameEntryComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  teams: Team[] = [
-    {value: 'Dev Team', viewValue: 'Dev Team'},
-    {value: 'Sales Team', viewValue: 'Sales Team'},
-    {value: 'Sales Alternate Team', viewValue: 'Sales Alternate Team'}
-  ];
+  teams: Team[] = [];
 
   // getSliderTickInterval(): number | 'auto' {
   //   if (this.showTicks) {

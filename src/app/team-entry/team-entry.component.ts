@@ -10,7 +10,6 @@ export interface Team {
   player1: string;
   player2: string;
 }
-const data: Team[] = []
 @Component({
   selector: 'teams',
   templateUrl: './team-entry.component.html',
