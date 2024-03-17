@@ -1,35 +1,36 @@
 <div id="settingsContainer">
   <mat-card appearance="outlined">
     <mat-card-title>Settings</mat-card-title>
-    <mat-divider inset></mat-divider>
+    <mat-divider></mat-divider>
     <br>
-    <div class="settingItem">
-      <label>Show Team Names Instead Of Players</label>
-      <mat-slide-toggle #showTeamNameOverPlayers labelPosition="before" (change)="toggleTeamNameOverPlayers(showTeamNameOverPlayers.checked)" [checked]="dataSource.showTeamName" color="primary"></mat-slide-toggle>
-    </div>
-    <br>
-    <div class="settingItem">
-      <label>Allow Overtime</label>
-      <mat-slide-toggle #allowOvertime labelPosition="before" (change)="toggleAllowOvertime(allowOvertime.checked)" [checked]="dataSource.allowOvertime" color="primary"></mat-slide-toggle>
-    </div>
-    <br>
-    <div class="settingItem">
-      <label>Score Needed To Win</label>
-      <mat-form-field class="max-score-input" appearance="fill">
-        <mat-label>Score</mat-label>
-        <input matInput #scoreNeededToWin  (change)="getScoreToWin(scoreNeededToWin.value)" maxlength="2" placeholder="E.g. 7 or 10" [value]="dataSource.scoreToWin">
-      </mat-form-field>
-    </div>
-    <br>
-    <div class="settingItem">
-      <label>Table Location</label>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Table Location</mat-label>
-        <input matInput #tableLocation (change)="getTableLocation(tableLocation.value)" maxlength="50" placeholder="E.g. CSols Office" [value]="dataSource.tableLocation">
-      </mat-form-field>
-    </div>
-    <br>
-    <mat-divider inset></mat-divider>
+    <mat-card-content>
+      <div class="settingItem">
+        <label>Show Team Names Instead Of Players</label>
+        <mat-slide-toggle #showTeamNameOverPlayers labelPosition="before" (change)="toggleTeamNameOverPlayers(showTeamNameOverPlayers.checked)" [checked]="dataSource.showTeamName" color="primary"></mat-slide-toggle>
+      </div>
+      <br>
+      <div class="settingItem">
+        <label>Allow Overtime</label>
+        <mat-slide-toggle #allowOvertime labelPosition="before" (change)="toggleAllowOvertime(allowOvertime.checked)" [checked]="dataSource.allowOvertime" color="primary"></mat-slide-toggle>
+      </div>
+      <br>
+      <div class="settingItem">
+        <label>Score Needed To Win</label>
+        <mat-form-field class="" appearance="fill">
+          <mat-label>Score</mat-label>
+          <input matInput #scoreNeededToWin  (change)="getScoreToWin(scoreNeededToWin.value)" maxlength="2" placeholder="E.g. 7 or 10" [value]="dataSource.scoreToWin">
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="settingItem">
+        <label>Table Location</label>
+        <mat-form-field class="" appearance="fill">
+          <mat-label>Table Location</mat-label>
+          <input matInput #tableLocation (change)="getTableLocation(tableLocation.value)" maxlength="50" placeholder="E.g. CSols Office" [value]="dataSource.tableLocation">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-divider></mat-divider>
     <mat-card-actions>
       <button mat-raised-button mat-stroked-button (click)="updateSettings('Close')">SAVE</button>
     </mat-card-actions>

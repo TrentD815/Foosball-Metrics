@@ -2,85 +2,87 @@
   <mat-card appearance="outlined">
     <mat-card-title>Add Game</mat-card-title>
     <mat-divider inset></mat-divider>
-    <mat-form-field appearance="fill">
-      <mat-label>Match Date</mat-label>
-      <input matInput [matDatepicker]="datepicker" [formControl]="date">
-      <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-      <mat-datepicker #datepicker></mat-datepicker>
-    </mat-form-field>
-    <div>
-      <mat-button-toggle-group (change)="toggleByPlayersOrTeam(group.value)" #group="matButtonToggleGroup" value="By Players" appearance="legacy">
-        <mat-button-toggle value="By Players">By Players</mat-button-toggle>
-        <mat-button-toggle value="By Team">By Team</mat-button-toggle>
-      </mat-button-toggle-group>
-    </div>
-    <label><b>Team 1</b></label>
-    <span id="team1Chooser" class="hidden">
+    <mat-card-content>
       <mat-form-field appearance="fill">
-        <mat-label>Choose Team</mat-label>
-        <mat-select [(ngModel)]="selectedTeam1" name="food">
-          <mat-option *ngFor="let team of teams" [value]="team.value">
-            {{team.viewValue}}
-          </mat-option>
-        </mat-select>
+        <mat-label>Match Date</mat-label>
+        <input matInput [matDatepicker]="datepicker" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker></mat-datepicker>
       </mat-form-field>
-    </span>
-    <div id="team1PlayerContainer">
-      <mat-form-field appearance="fill">
-        <mat-label>Player 1</mat-label>
-        <input [(ngModel)]="player1Team1" matInput>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Player 2</mat-label>
-        <input [(ngModel)]="player2Team1" matInput>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-label>Score: </mat-label>
-      <mat-slider [showTickMarks]="showTicks" color="primary" id="sliderTeam1" [max]="max" [min]=0 [step]=1 >
-        <input matSliderThumb #slider1 [(ngModel)]="slider1Value"/>
-      </mat-slider>
-      <label>{{ slider1.value }}</label>
       <div>
-        <mat-checkbox #overtime (change)="toggleOvertime(overtime.checked)" color="primary">Overtime?</mat-checkbox>
+        <mat-button-toggle-group (change)="toggleByPlayersOrTeam(group.value)" #group="matButtonToggleGroup" value="By Players" appearance="legacy">
+          <mat-button-toggle value="By Players">By Players</mat-button-toggle>
+          <mat-button-toggle value="By Team">By Team</mat-button-toggle>
+        </mat-button-toggle-group>
       </div>
-    </div>
-    <div>
-      <div class="vsContainer">
-        <mat-divider inset class="vsLine"></mat-divider>
-        <span class="vsText mat-typography"><b>VS</b></span>
-        <mat-divider inset class="vsLine"></mat-divider>
-      </div>
-      <label><b>Team 2</b></label>
-      <span id="team2Chooser" class="hidden">
+      <label><b>Team 1</b></label>
+      <span id="team1Chooser" class="hidden">
         <mat-form-field appearance="fill">
           <mat-label>Choose Team</mat-label>
-          <mat-select [(ngModel)]="selectedTeam2" name="food">
+          <mat-select [(ngModel)]="selectedTeam1" name="food">
             <mat-option *ngFor="let team of teams" [value]="team.value">
               {{team.viewValue}}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </span>
-      <div id="team2PlayerContainer">
+      <div id="team1PlayerContainer">
         <mat-form-field appearance="fill">
           <mat-label>Player 1</mat-label>
-          <input [(ngModel)]="player1Team2" matInput>
+          <input [(ngModel)]="player1Team1" matInput>
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Player 2</mat-label>
-          <input [(ngModel)]="player2Team2" matInput>
+          <input [(ngModel)]="player2Team1" matInput>
         </mat-form-field>
       </div>
       <div>
         <mat-label>Score: </mat-label>
-        <mat-slider [showTickMarks]="showTicks" color="primary" id="sliderTeam2" [max]="max" [min]=0 [step]=1 >
-          <input matSliderThumb #slider2 [(ngModel)]="slider2Value"/>
+        <mat-slider [showTickMarks]="showTicks" color="primary" id="sliderTeam1" [max]="max" [min]=0 [step]=1 >
+          <input matSliderThumb #slider1 [(ngModel)]="slider1Value"/>
         </mat-slider>
-        <label>{{ slider2.value }}</label>
+        <label>{{ slider1.value }}</label>
+        <div>
+          <mat-checkbox #overtime (change)="toggleOvertime(overtime.checked)" color="primary">Overtime?</mat-checkbox>
+        </div>
       </div>
-    </div>
-    <mat-divider inset></mat-divider>
+      <div>
+        <div class="vsContainer">
+          <mat-divider inset class="vsLine"></mat-divider>
+          <span class="vsText mat-typography"><b>VS</b></span>
+          <mat-divider inset class="vsLine"></mat-divider>
+        </div>
+        <label><b>Team 2</b></label>
+        <span id="team2Chooser" class="hidden">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose Team</mat-label>
+            <mat-select [(ngModel)]="selectedTeam2" name="food">
+              <mat-option *ngFor="let team of teams" [value]="team.value">
+                {{team.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </span>
+        <div id="team2PlayerContainer">
+          <mat-form-field appearance="fill">
+            <mat-label>Player 1</mat-label>
+            <input [(ngModel)]="player1Team2" matInput>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Player 2</mat-label>
+            <input [(ngModel)]="player2Team2" matInput>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-label>Score: </mat-label>
+          <mat-slider [showTickMarks]="showTicks" color="primary" id="sliderTeam2" [max]="max" [min]=0 [step]=1 >
+            <input matSliderThumb #slider2 [(ngModel)]="slider2Value"/>
+          </mat-slider>
+          <label>{{ slider2.value }}</label>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-divider></mat-divider>
     <mat-card-actions>
       <button mat-raised-button mat-stroked-button (click)="addGame('Close')">SAVE</button>
     </mat-card-actions>

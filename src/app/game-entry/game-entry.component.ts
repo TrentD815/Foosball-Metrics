@@ -31,12 +31,21 @@ export class GameEntryComponent implements OnInit {
   player2Team1 ?: string;
   player1Team2 ?: string;
   player2Team2 ?: string;
+  teams: any
 
   constructor(private _snackBar: MatSnackBar, private http: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.http.get<any>('http://localhost:4100/teams').subscribe(response => {
+      this.teams = response.map((team: any)=> {
+        return {
+          value: self.crypto.randomUUID(),
+          viewValue: team.teamName
+        }
+      })
+  })}
 
-  teams: Team[] = [];
+
 
   // getSliderTickInterval(): number | 'auto' {
   //   if (this.showTicks) {

@@ -2,23 +2,25 @@
   <div id="teamsEntryContainer">
     <mat-card appearance="outlined">
       <mat-card-title>Add Team</mat-card-title>
-      <mat-divider inset></mat-divider>
+      <mat-divider></mat-divider>
       <br>
-      <mat-form-field appearance="fill">
-        <mat-label>Team Name</mat-label>
-        <input [(ngModel)]="teamName"matInput>
-      </mat-form-field>
-      <br>
-      <mat-form-field appearance="fill">
-        <mat-label>Player 1</mat-label>
-        <input [(ngModel)]="player1Name" matInput>
-      </mat-form-field>
-      <br>
-      <mat-form-field appearance="fill">
-        <mat-label>Player 2</mat-label>
-        <input [(ngModel)]="player2Name" matInput>
-      </mat-form-field>
-      <mat-divider inset></mat-divider>
+      <mat-card-content>
+        <mat-form-field appearance="fill">
+          <mat-label>Team Name</mat-label>
+          <input [(ngModel)]="teamName"matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Player 1</mat-label>
+          <input [(ngModel)]="player1Name" matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Player 2</mat-label>
+          <input [(ngModel)]="player2Name" matInput>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-divider></mat-divider>
       <mat-card-actions>
         <button mat-raised-button mat-stroked-button (click)="addTeam('Close')">SAVE</button>
       </mat-card-actions>
