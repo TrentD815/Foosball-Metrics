@@ -5,7 +5,7 @@
     <mat-card-content>
       <mat-form-field appearance="fill">
         <mat-label>Match Date</mat-label>
-        <input matInput [matDatepicker]="datepicker" [formControl]="date">
+        <input maxlength="50" matInput [matDatepicker]="datepicker" [formControl]="date">
         <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
         <mat-datepicker #datepicker></mat-datepicker>
       </mat-form-field>
@@ -29,11 +29,11 @@
       <div id="team1PlayerContainer">
         <mat-form-field appearance="fill">
           <mat-label>Player 1</mat-label>
-          <input [(ngModel)]="player1Team1" matInput>
+          <input [(ngModel)]="player1Team1" maxlength="50" matInput>
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Player 2</mat-label>
-          <input [(ngModel)]="player2Team1" matInput>
+          <input [(ngModel)]="player2Team1" maxlength="50" matInput>
         </mat-form-field>
       </div>
       <div>
@@ -66,11 +66,11 @@
         <div id="team2PlayerContainer">
           <mat-form-field appearance="fill">
             <mat-label>Player 1</mat-label>
-            <input [(ngModel)]="player1Team2" matInput>
+            <input [(ngModel)]="player1Team2" maxlength="50" matInput>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Player 2</mat-label>
-            <input [(ngModel)]="player2Team2" matInput>
+            <input [(ngModel)]="player2Team2" maxlength="50" matInput>
           </mat-form-field>
         </div>
         <div>

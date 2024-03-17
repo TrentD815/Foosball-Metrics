@@ -4,11 +4,13 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatCheckboxChange} from "@angular/material/checkbox";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-interface Team {
-  value: string;
-  viewValue: string;
+export interface NewGame {
+  date: string
+  team1Score: number
+  team2Score: number
+  isOvertime: boolean
+  isShutout: boolean
 }
-
 @Component({
   selector: 'game-entry',
   templateUrl: './game-entry.component.html',
@@ -17,21 +19,22 @@ interface Team {
 export class GameEntryComponent implements OnInit {
   date = new UntypedFormControl(new Date());
   //autoTicks = false;
-  showTicks = true;
-  slider1Value = 0;
-  slider2Value = 0;
+  showTicks: boolean = true;
+  slider1Value: number = 0;
+  slider2Value: number = 0;
   //tickInterval = 1;
-  toastDuration = 5000;   //milliseconds
+  toastDuration: number = 5000;   //milliseconds
   selectedTeam1 ?: string;
   selectedTeam2 ?: string;
-  max = 10;
-  isOvertime = false;
-  isByPlayerOrTeam = "By Players";
+  max: number = 10;
+  isOvertime: boolean = false;
+  isByPlayerOrTeam: string = "By Players";
   player1Team1 ?: string;
   player2Team1 ?: string;
   player1Team2 ?: string;
   player2Team2 ?: string;
   teams: any
+  isShutout: boolean = false
 
   constructor(private _snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -44,8 +47,6 @@ export class GameEntryComponent implements OnInit {
         }
       })
   })}
-
-
 
   // getSliderTickInterval(): number | 'auto' {
   //   if (this.showTicks) {
@@ -60,11 +61,13 @@ export class GameEntryComponent implements OnInit {
     console.log(this.slider2Value)
     console.log(this.slider1Value)
     if (isValidGameScore) {
+      this.isShutout = this.checkIfShutout()
       let game = {
         date : this.date.value,
         team1Score : this.slider1Value,
         team2Score : this.slider2Value,
         isOvertime: this.isOvertime,
+        isShutout: this.isShutout
       }
 
       const teamPlayersResponse = this.checkValidTeamPlayers();
@@ -92,6 +95,9 @@ export class GameEntryComponent implements OnInit {
     this.isOvertime = this.isOvertime === checked;
     if (this.slider1Value > 10) { this.slider1Value = 10; }
     if (this.slider2Value > 10) { this.slider2Value = 10; }
+  }
+  checkIfShutout() {
+    return this.slider1Value === 0 || this.slider2Value === 0
   }
 
   toggleByPlayersOrTeam(playersOrTeam: string) {
@@ -130,7 +136,6 @@ export class GameEntryComponent implements OnInit {
     return [true, "Game logged successfully!"]
   }
 
-  // Check a few conditions
   checkValidTeamPlayers() {
     console.log(this.isByPlayerOrTeam)
     if (this.isByPlayerOrTeam === "By Players") {
@@ -153,7 +158,7 @@ export class GameEntryComponent implements OnInit {
         return [false, "The same team cannot play each other!"]
       }
     }
-    return [true, "Team added successfully!"]   // Not used but here for continuity
+    return [true, "Team added successfully!"]
   }
 
   // Add players to game object depending on choice

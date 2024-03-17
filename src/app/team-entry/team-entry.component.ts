@@ -24,6 +24,7 @@ export class TeamEntryComponent implements OnInit {
   player2Name ?: string;
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined
   @ViewChild(MatSort) sort?: MatSort;
+
   constructor(private _snackBar: MatSnackBar, private http: HttpClient) {}
   ngOnInit(): void {
     this.http.get<any>('http://localhost:4100/teams').subscribe(response => {
