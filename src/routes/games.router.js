@@ -101,3 +101,22 @@ gamesRouter.get('/stats', async (req, res) => {
     return res.status(500).send(error.message)
   }
 })
+gamesRouter.get('/refreshStats', async (req, res) => {
+  try {
+    const collection = req.collection
+    const currentStats = await collection.find({ object: 'stats' }).toArray() || []
+
+    // Stat calculation
+    const totalGames = await collection.countDocuments({object: 'games'})
+
+
+    await collection.updateOne(
+      { object: 'stats' },
+      { $set: currentStats},
+      { upsert: true }
+    )
+    return res.status(200).send('Stats refreshed')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+})

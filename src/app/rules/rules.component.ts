@@ -16,7 +16,6 @@ export class RulesComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.get<any>('http://localhost:4100/rules').subscribe(response => {
-      console.log(response)
       this.dataSource = response
     })
   }

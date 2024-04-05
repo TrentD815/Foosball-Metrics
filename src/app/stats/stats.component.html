@@ -5,10 +5,10 @@
       <mat-card-title>Games Played</mat-card-title>
       <mat-divider inset></mat-divider>
       <mat-card-content>
-        <mat-card-content>Total: 13</mat-card-content>
-        <mat-card-content>Average Per Week: 3.5</mat-card-content>
-        <mat-card-content>Average Per Month: 13.2</mat-card-content>
-        <mat-card-content>Average Per Year: 200.4</mat-card-content>
+        <mat-card-content>Total: {{dataSource?.gamesPlayedTotal}}</mat-card-content>
+        <mat-card-content>Average Per Week: {{dataSource?.gamesPlayedPerWeek}}</mat-card-content>
+        <mat-card-content>Average Per Month: {{dataSource?.gamesPlayedPerMonth}}</mat-card-content>
+        <mat-card-content>Average Per Year: {{dataSource?.gamesPlayedPerYear}}</mat-card-content>
       </mat-card-content>
     </mat-card>
   </span>
@@ -17,8 +17,8 @@
       <mat-card-title>Streaks</mat-card-title>
       <mat-divider inset></mat-divider>
       <mat-card-content>
-        <mat-card-content> Longest Winning Streak: 3 by Trent/Adam</mat-card-content>
-        <mat-card-content> Current Winning Streak: 1 by Trent/Adam</mat-card-content>
+        <mat-card-content> Longest Winning Streak: : {{dataSource?.longestWinningStreak?.winStreak}} by {{dataSource?.longestWinningStreak?.teamName}}</mat-card-content>
+        <mat-card-content> Current Winning Streak: {{dataSource?.longestCurrentWinningStreak?.winStreak}} by {{dataSource?.longestCurrentWinningStreak?.teamName}}</mat-card-content>
       </mat-card-content>
     </mat-card>
   </span>
@@ -28,17 +28,17 @@
       <mat-divider inset></mat-divider>
         <mat-card-content>
           <i class="ibc first-place-medal"></i>
-          Trent/Adam: 7.3
+          {{dataSource?.averageGoalsPerGame[0]?.teamName}}: {{dataSource?.averageGoalsPerGame[0]?.goalsPerGame}}
         </mat-card-content>
         <mat-card-content>
           <i class="ibc second-place-medal"></i>
-          Rob/Matt: 6.4
+          {{dataSource?.averageGoalsPerGame[1]?.teamName}}: {{dataSource?.averageGoalsPerGame[1]?.goalsPerGame}}
         </mat-card-content>
         <mat-card-content>
           <i class="ibc third-place-medal"></i>
-          Rob/Lou: 6.1
+          {{dataSource?.averageGoalsPerGame[2]?.teamName}}: {{dataSource?.averageGoalsPerGame[2]?.goalsPerGame}}
         </mat-card-content>
-        <mat-card-content> All Teams: 7.6</mat-card-content>
+        <mat-card-content> All Teams: {{dataSource?.averageGoalsPerGame[3]?.goalsPerGame}}</mat-card-content>
     </mat-card>
   </span>
   <span class="item column">
@@ -56,10 +56,11 @@
       <mat-card-title>Milestones</mat-card-title>
       <mat-divider inset></mat-divider>
       <mat-card-content>
-        <mat-card-content> First Game: 9/23/21</mat-card-content>
-        <mat-card-content> 100th Game: Not reached yet</mat-card-content>
-        <mat-card-content> 500th Game: Not reached yet</mat-card-content>
-        <mat-card-content> 1000th Game: Not reached yet</mat-card-content>
+        <mat-card-content> First Game: {{dataSource?.firstGame}}</mat-card-content>
+        <mat-card-content> 100th Game: {{dataSource?.oneHundredthGame}}</mat-card-content>
+        <mat-card-content> 500th Game: {{dataSource?.twoHundredFiftiethGame}}</mat-card-content>
+        <mat-card-content> 750th Game: {{dataSource?.sevenHundredFiftiethGame}}</mat-card-content>
+        <mat-card-content> 1000th Game: {{dataSource?.oneThousandthGame}}</mat-card-content>
       </mat-card-content>
     </mat-card>
   </span>
@@ -69,17 +70,17 @@
       <mat-divider inset></mat-divider>
         <mat-card-content>
           <i class="ibc first-place-medal"></i>
-          Trent/Adam: 93
+          {{dataSource?.totalGoalsScored[0]?.teamName}}: {{dataSource?.totalGoalsScored[0]?.goalsScored}}
         </mat-card-content>
         <mat-card-content>
           <i class="ibc second-place-medal"></i>
-          Rob/Lou: 58
+          {{dataSource?.totalGoalsScored[1]?.teamName}}: {{dataSource?.totalGoalsScored[1]?.goalsScored}}
         </mat-card-content>
         <mat-card-content>
           <i class="ibc third-place-medal"></i>
-          Rob/Matt: 27
+          {{dataSource?.totalGoalsScored[2]?.teamName}}: {{dataSource?.totalGoalsScored[2]?.goalsScored}}
         </mat-card-content>
-        <mat-card-content> All Teams: 178</mat-card-content>
+        <mat-card-content> All Teams: {{dataSource?.totalGoalsScored[3]?.goalsScored}}</mat-card-content>
     </mat-card>
   </span>
   <span class="item column">
@@ -87,9 +88,9 @@
       <mat-card-title>Special Games</mat-card-title>
       <mat-divider inset></mat-divider>
       <mat-card-content>
-        <mat-card-content>Overtime Games: 3</mat-card-content>
+        <mat-card-content>Overtime Games: {{dataSource?.totalOvertimes}}</mat-card-content>
         <a href="">See list</a>
-        <mat-card-content>Shutouts: 1</mat-card-content>
+        <mat-card-content>Shutouts: {{dataSource?.totalShutouts}}</mat-card-content>
         <a href="">See list</a>
       </mat-card-content>
     </mat-card>
@@ -100,15 +101,15 @@
       <mat-divider inset></mat-divider>
           <mat-card-content>
             <i class="ibc first-place-medal"></i>
-            Trent/Adam: 8
+            {{dataSource?.totalWins[0]?.teamName}}: {{dataSource?.totalWins[0]?.wins}}
           </mat-card-content>
           <mat-card-content>
             <i class="ibc second-place-medal"></i>
-            Rob/Lou: 4
+            {{dataSource?.totalWins[1]?.teamName}}: {{dataSource?.totalWins[1]?.wins}}
           </mat-card-content>
           <mat-card-content>
             <i class="ibc third-place-medal"></i>
-            Rob/Matt: 3
+            {{dataSource?.totalWins[2]?.teamName}}: {{dataSource?.totalWins[2]?.wins}}
           </mat-card-content>
     </mat-card>
   </span>
@@ -118,15 +119,15 @@
       <mat-divider inset></mat-divider>
           <mat-card-content>
             <i class="ibc first-place-medal"></i>
-            Trent/Adam: 53.33% (8 Wins | 7 Losses | 15 Games Played)
+            {{dataSource?.winPercentage[0]?.teamName}}: {{dataSource?.winPercentage[0]?.winPercentage}}% (8W | 7L | 15 GP)
           </mat-card-content>
           <mat-card-content>
             <i class="ibc third-place-medal"></i>
-            Rob/Matt: 66% (4 Wins | 2 Losses | 6 Games Played)
+            {{dataSource?.winPercentage[1]?.teamName}}: {{dataSource?.winPercentage[1]?.winPercentage}}% (4W | 2L | 6GP)
           </mat-card-content>
           <mat-card-content>
             <i class="ibc second-place-medal"></i>
-            Rob/Lou: 33% (3 Wins | 6 Losses | 9 Games Played)
+            {{dataSource?.winPercentage[2]?.teamName}}: {{dataSource?.winPercentage[2]?.winPercentage}}% (3W | 6L | 9GP)
           </mat-card-content>
     </mat-card>
   </span>
@@ -136,15 +137,15 @@
       <mat-divider inset></mat-divider>
           <mat-card-content>
             <i class="ibc first-place-medal"></i>
-            Trent/Adam: +2.6
+            {{dataSource?.pointDifferential[0]?.teamName}}: {{dataSource?.pointDifferential[0]?.pointDifferential}}
           </mat-card-content>
           <mat-card-content>
             <i class="ibc third-place-medal"></i>
-            Rob/Lou: +0.6
+            {{dataSource?.pointDifferential[1]?.teamName}}: {{dataSource?.pointDifferential[1]?.pointDifferential}}
           </mat-card-content>
           <mat-card-content>
             <i class="ibc second-place-medal"></i>
-            Rob/Matt: -1.3
+            {{dataSource?.pointDifferential[2]?.teamName}}: {{dataSource?.pointDifferential[2]?.pointDifferential}}
           </mat-card-content>
     </mat-card>
   </span>
