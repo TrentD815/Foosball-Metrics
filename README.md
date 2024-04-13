@@ -20,4 +20,6 @@ Foosball Metrics is a simple interface to log foosball matches and track stats
 <img height="400" src="./src/assets/gallery/FoosballTeams.png" alt="Teams Page Example">
 <img src="./src/assets/gallery/FoosballSettings.png" alt="Settings Page Example">
 
+### Background Animation
+https://github.com/TrentD815/Foosball-Metrics/assets/31478797/18c6ef25-b676-453f-8f4b-2461f26eec96
 
