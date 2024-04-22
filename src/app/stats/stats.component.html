@@ -43,6 +43,25 @@
   </span>
   <span class="item column">
     <mat-card appearance="outlined">
+      <mat-card-title>Total Games Played</mat-card-title>
+      <mat-divider inset></mat-divider>
+        <mat-card-content>
+          <i class="ibc first-place-medal"></i>
+          {{dataSource?.gamesPlayedPerTeam[1]?.teamName}}: {{dataSource?.gamesPlayedPerTeam[1]?.gamesPlayed}}
+        </mat-card-content>
+        <mat-card-content>
+          <i class="ibc second-place-medal"></i>
+          {{dataSource?.gamesPlayedPerTeam[2]?.teamName}}: {{dataSource?.gamesPlayedPerTeam[2]?.gamesPlayed}}
+        </mat-card-content>
+        <mat-card-content>
+          <i class="ibc third-place-medal"></i>
+          {{dataSource?.gamesPlayedPerTeam[3]?.teamName}}: {{dataSource?.gamesPlayedPerTeam[3]?.gamesPlayed}}
+        </mat-card-content>
+        <mat-card-content> All Teams: {{dataSource?.gamesPlayedPerTeam[0]?.gamesPlayed}}</mat-card-content>
+    </mat-card>
+  </span>
+  <span class="item column">
+    <mat-card appearance="outlined">
       <mat-card-title>Head To Head</mat-card-title>
       <mat-divider inset></mat-divider>
       <mat-card-content>
@@ -58,7 +77,8 @@
       <mat-card-content>
         <mat-card-content> First Game: {{dataSource?.firstGame}}</mat-card-content>
         <mat-card-content> 100th Game: {{dataSource?.oneHundredthGame}}</mat-card-content>
-        <mat-card-content> 500th Game: {{dataSource?.twoHundredFiftiethGame}}</mat-card-content>
+        <mat-card-content> 250th Game: {{dataSource?.twoHundredFiftiethGame}}</mat-card-content>
+        <mat-card-content> 500th Game: {{dataSource?.fiveHundredthGame}}</mat-card-content>
         <mat-card-content> 750th Game: {{dataSource?.sevenHundredFiftiethGame}}</mat-card-content>
         <mat-card-content> 1000th Game: {{dataSource?.oneThousandthGame}}</mat-card-content>
       </mat-card-content>
@@ -70,17 +90,17 @@
       <mat-divider inset></mat-divider>
         <mat-card-content>
           <i class="ibc first-place-medal"></i>
-          {{dataSource?.totalGoalsScored[0]?.teamName}}: {{dataSource?.totalGoalsScored[0]?.goalsScored}}
-        </mat-card-content>
-        <mat-card-content>
-          <i class="ibc second-place-medal"></i>
           {{dataSource?.totalGoalsScored[1]?.teamName}}: {{dataSource?.totalGoalsScored[1]?.goalsScored}}
         </mat-card-content>
         <mat-card-content>
-          <i class="ibc third-place-medal"></i>
+          <i class="ibc second-place-medal"></i>
           {{dataSource?.totalGoalsScored[2]?.teamName}}: {{dataSource?.totalGoalsScored[2]?.goalsScored}}
         </mat-card-content>
-        <mat-card-content> All Teams: {{dataSource?.totalGoalsScored[3]?.goalsScored}}</mat-card-content>
+        <mat-card-content>
+          <i class="ibc third-place-medal"></i>
+          {{dataSource?.totalGoalsScored[3]?.teamName}}: {{dataSource?.totalGoalsScored[3]?.goalsScored}}
+        </mat-card-content>
+        <mat-card-content> All Teams: {{dataSource?.totalGoalsScored[0]?.goalsScored}}</mat-card-content>
     </mat-card>
   </span>
   <span class="item column">
@@ -119,15 +139,24 @@
       <mat-divider inset></mat-divider>
           <mat-card-content>
             <i class="ibc first-place-medal"></i>
-            {{dataSource?.winPercentage[0]?.teamName}}: {{dataSource?.winPercentage[0]?.winPercentage}}% (8W | 7L | 15 GP)
+            {{dataSource?.winPercentage[0]?.teamName}}: {{dataSource?.winPercentage[0]?.winPercentage}}%
+            ({{dataSource?.winPercentage[0]?.wins}}W |
+            {{dataSource?.winPercentage[0]?.losses}}L |
+            {{dataSource?.winPercentage[0]?.gamesPlayed}} GP)
           </mat-card-content>
           <mat-card-content>
             <i class="ibc third-place-medal"></i>
-            {{dataSource?.winPercentage[1]?.teamName}}: {{dataSource?.winPercentage[1]?.winPercentage}}% (4W | 2L | 6GP)
+            {{dataSource?.winPercentage[1]?.teamName}}: {{dataSource?.winPercentage[1]?.winPercentage}}%
+            ({{dataSource?.winPercentage[1]?.wins}}W |
+            {{dataSource?.winPercentage[1]?.losses}}L |
+            {{dataSource?.winPercentage[1]?.gamesPlayed}}GP)
           </mat-card-content>
           <mat-card-content>
             <i class="ibc second-place-medal"></i>
-            {{dataSource?.winPercentage[2]?.teamName}}: {{dataSource?.winPercentage[2]?.winPercentage}}% (3W | 6L | 9GP)
+            {{dataSource?.winPercentage[2]?.teamName}}: {{dataSource?.winPercentage[2]?.winPercentage}}%
+            ({{dataSource?.winPercentage[2]?.wins}}W |
+            {{dataSource?.winPercentage[2]?.losses}}L |
+            {{dataSource?.winPercentage[2]?.gamesPlayed}} GP)
           </mat-card-content>
     </mat-card>
   </span>
